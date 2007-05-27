@@ -1,15 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!--
-
-	curiously.green1.0 by nodethirtythree design
-	http://www.nodethirtythree.com
-	hope you enjoy it :)
-
--->
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title>LukeFX - Luca Simone</title>
+<title>Love4Web - Php Web Framework</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link rel="stylesheet" type="text/css" href="styles/style.css" />
@@ -19,7 +12,7 @@
 <div id="header">
 	
   <div id="header_inner"> 
-    <h1><span>Luca.</span>Simone</h1>
+    <h1><span>Framework.</span>Home</h1>
     <div id="slogan"></div>
   </div>
 </div>
@@ -28,11 +21,11 @@
   <div id="lcol"> 
     <div id="menu"> 
       <ul>
-        <li><a href="#">Site Homepage<span></span></a></li>
+        <li><a href="index.php">Site Homepage<span></span></a></li>
         <li><a href="http://blog.lukefx.com">Blog<span></span></a></li>
-        <li><a href="#">Curriculum<span></span></a></li>
-        <li><a href="#">About Me<span></span></a></li>
-        <li><a href="#">Contact Me<span></span></a></li>
+        <li><a href="#">Other<span></span></a></li>
+        <li><a href="#">About<span></span></a></li>
+        <li><a href="#">Contact<span></span></a></li>
       </ul>
     </div>
     <div id="menu_end"></div>

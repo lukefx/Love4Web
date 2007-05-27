@@ -22,7 +22,7 @@ class Persistent {
         return self::$instance;
     }
 
-    function list()
+    function show()
     {
         return null;
     }
