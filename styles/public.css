@@ -1,0 +1,640 @@
+/* - - - - - - - - - - - - - - - - - - - - -
+
+Title : Wufoo Form CSS
+Author : Infinity Box Inc.
+URL : http://wufoo.com
+
+Last Updated : November 20, 2006
+
+- - - - - - - - - - - - - - - - - - - - - */
+
+body{
+/*margin:7px 0 15px 0;*/
+text-align:center;
+font-size:small;
+background:#fff;
+font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+}
+* html body{
+font-size:x-small; /* for IE5/Win */
+f\ont-size:small; /* for other IE versions */
+}
+#container{
+text-align:left;
+border:1px solid #ccc;
+background:#fff;
+}
+#container, #top, #bottom, #footer{
+margin:0 auto;
+width:558px;
+}
+#top, #bottom{
+width:590px;
+height:10px !important;
+display:block !important;
+}
+#top{
+margin-top:10px;
+}
+
+form.wufoo{
+margin:20px 20px 0 20px;
+padding:0 0 20px 0;
+}
+
+/* ----- LOGO ----- */
+
+h1{
+margin:0;
+padding:0;
+min-height:0;
+background-color:#dedede;
+text-indent:-9000px;
+text-decoration:none;
+}
+h1 a{
+height:100%;
+min-height:40px;
+display:block;
+background:url("wflogo.png"/*tpa=http://leader.wufoo.com/images/wflogo.png*/) no-repeat;
+overflow:hidden;
+}
+* html h1 a{
+background-image: none;
+filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/images/wflogo.png", sizingMethod="crop");
+}
+
+img { 
+behavior: url("iepngfix.htc"/*tpa=http://leader.wufoo.com/css/iepngfix.htc*/);
+border:none;
+}
+
+.confirm{
+text-align:center;
+margin:0 !important;
+padding:70px 0 80px 0;
+border:none !important;
+}
+
+/* ----- FOOTER ----- */
+
+.footer a{
+display:block;
+font-size:110%;
+margin:0 auto 30px auto;
+padding:5px 30px 5px 100px;
+line-height:40px;
+text-align:right;
+line-height:auto;
+background-color:red;
+background-image:url("wflogo.png"/*tpa=http://leader.wufoo.com/images/wflogo.png*/);
+background-repeat:no-repeat;
+background-position:5px center;
+width:380px;
+text-decoration:none;
+}
+* html .footer a{
+background-image: none;
+filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/images/wflogo.png", sizingMethod="crop");
+}
+.footer a:hover{
+text-decoration:underline;
+}
+
+/* ----- EMBED ----- */
+
+body.embed{margin:0 !important;overflow:hidden !important}
+.embed #container{width:100% !important;border:none !important}
+.embed form{margin:0 !important}
+
+/* - - - - - - - - - - - - - - - - - - - - -
+
+FORM
+
+- - - - - - - - - - - - - - - - - - - - - */
+
+.wufoo{
+font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+font-size:small;
+}
+.wufoo li{
+width:62%;
+}
+form ul{
+margin:0; 
+padding:0;
+list-style-type:none;
+width:100%;
+}
+form li{
+margin:0;
+padding:4px 5px 2px 9px;
+position:relative;
+}
+form li:after, .buttons:after{
+content:"."; 
+display:block;
+height:0; 
+clear:both; 
+visibility:hidden;
+}
+form li, .buttons{display:inline-block;}
+* html form li, * html .buttons{height: 1%;}
+form li, .buttons{display: block;}
+
+form li div, form li span{
+margin:0 5px 0 0;
+padding:0 0 8px 0;
+color:#444;
+}
+form li span{
+float:left;
+}
+form li div.left{
+display:inline;
+float:left;
+width:48%;
+}
+form li div.right{
+display:inline;
+float:right;
+width:48%;
+}
+form li div.left .medium, form li div.right .medium{
+width:100%;
+}
+
+.clear{
+clear:both;
+}
+
+form li div label, form li span label{
+margin:0;
+padding-top:3px;
+clear:both;
+font-size:9px;
+line-height:9px;
+color:#444;
+display:block;
+}
+form li .icon{
+float:left;
+margin:.1em 5px 0 0;
+padding:0;
+width: 16px;
+height: 16px;
+}
+
+
+/* ----- INFO ----- */
+
+.info{
+display:inline-block; 
+clear:both;
+margin:0 0 1em 0;
+border-bottom:1px dotted #ccc;
+}
+.info[class]{
+display:block;
+}
+.info h2{
+font-weight:normal;
+font-size:160%;
+margin:0 0 3px 0;
+clear:left;
+}
+.info p{
+font-size:95%;
+line-height:130%;
+margin:0 0 1em 0;
+}
+
+/* ----- SECTIONS ----- */
+
+form hr{
+display:none;
+}
+form li.section{
+border-top:1px dotted #ccc;
+margin-top:9px;
+padding-top:13px;
+padding-bottom:0px;
+width:96%;
+}
+form ul li.first{
+border-top:none;
+margin-top:0px;
+padding-top:1px;
+}
+form .section h3{
+font-weight:normal;
+font-size:110%;
+line-height:130%;
+margin:0 0 2px 0;
+}
+form .section p{
+font-size:85%;
+margin:0 0 1em 0;
+}
+
+/* ----- BUTTONS ----- */
+
+.button{
+cursor:hand !important;
+}
+input.btTxt{
+padding:0 7px;
+width:auto;
+overflow:visible;
+}
+.buttons{
+clear:both;
+margin-top:10px;
+}
+.buttons input{
+font-size:120%;
+margin-right: 5px;
+}
+
+/* ----- FIELDS AND LABELS ----- */
+
+label.desc{
+line-height:150%;
+padding:0 4px 1px 0;
+border:none;
+color:#444;
+display:block;
+font-size:95%;
+font-weight:bold;
+}
+input.text, textarea.textarea, select.select{
+margin:0;
+font-size:100%;
+border-top:1px solid #7c7c7c;
+border-left:1px solid #c3c3c3;
+border-right:1px solid #c3c3c3;
+border-bottom:1px solid #ddd;
+background:#fff url("fieldbg.gif"/*tpa=http://leader.wufoo.com/images/fieldbg.gif*/) repeat-x top;
+color:#333;
+}
+input.text{
+padding:2px 0 2px 0;
+}
+input.currency{
+text-align:right;
+}
+
+input.checkbox, input.radio{
+display:block;
+line-height:1.4em;
+margin:8px 0 0 3px;
+width:13px;
+height:13px;
+}
+label.choice{
+font-size:100%;
+display:block;
+line-height:1.4em;
+margin:-19px 0 0 25px;
+padding:4px 0 5px 0;
+color:#444;
+width:90%;
+}
+
+textarea.textarea{
+margin-top:1px;
+font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+}
+select.select{
+margin:1px 0;
+padding:1px 0 0 0;
+}
+select.select[class]{
+margin:0;
+padding:1px 0 1px 0;
+}
+.safari select.select{
+margin-bottom:1px;
+font-size:120% !important;
+}
+
+/* ----- SIZES ----- */
+
+.third{
+width:32% !important;
+}
+.half{
+width:48% !important;
+}
+.full{
+width:100% !important;
+}
+
+input.small, select.small{
+width:25%;
+}
+input.medium, select.medium{
+width:50%;
+}
+input.large, select.large, textarea.textarea{
+width:100%;
+}
+input.tags{
+width:315px;
+}
+
+textarea.small{
+height:5.5em;
+}
+textarea.medium{
+height:10em;
+}
+textarea.large{
+height:20em;
+}
+
+/* ----- ERRORS ----- */
+
+form li.error{
+border-bottom:1px solid #EACBCC;
+border-right:1px solid #EACBCC;
+background-color: #FFDFDF;
+margin:3px 0;
+}
+li.error label.desc, form label.error{
+color:red !important;
+}
+form p.error{
+clear:both;
+color:red;
+margin:0 0 5px 0;
+font-size:10px;
+font-weight:bold;
+}
+#errorMsgLbl{
+margin:5px 0 2px 0;
+font-size:110%;
+color:red;
+}
+#errorMsg{
+color:#222;
+font-size:85%;
+}
+
+/* ----- REQUIRED ----- */
+
+form .req{
+float:none;
+color:red;
+font-weight:bold;
+}
+
+/* ----- INSTRUCTIONS ----- */
+
+form li.focused{
+	background-color: #B6DA82;
+}
+form .instruct{
+display:none;
+position:absolute;
+top:0;
+left:100%;
+width:42%;
+margin:0 0 0 8px;
+padding:8px 10px 9px 10px;
+border:1px solid #e6e6e6;
+background:#f5f5f5;
+line-height:130%;
+font-size:80%;
+color:#444;
+}
+form .instruct small{
+font-size:100%;
+}
+form li.focused .instruct, form li:hover .instruct{
+display:block;
+}
+.noI form li{
+width:96% !important;
+}
+.noI .instruct{
+display:none !important;
+}/* The main calendar widget.  DIV containing a table. */
+
+div.calendar { position: relative }
+
+.calendar table {
+border:1px solid #dedede;
+font-size: 11px;
+color: #000;
+background: #fff;
+font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+}
+
+/* Header part -- contains navigation buttons and day names. */
+
+.calendar .button { /* "<<", "<", ">", ">>" buttons have this class */
+text-align: center;    /* They are the navigation buttons */
+padding: 2px;          /* Make the buttons seem like they're pressing */
+}
+
+.calendar .nav {
+background:#f5f5f5;
+}
+
+.calendar thead .title { /* This holds the current "month, year" */
+font-weight: bold;      /* Pressing it will take you to the current date */
+text-align: center;
+background: #dedede;
+color: #000;
+padding: 2px;
+}
+
+.calendar thead .headrow { /* Row <TR> containing navigation buttons */
+background: #f5f5f5;
+color: #444;
+}
+
+.calendar thead .daynames { /* Row <TR> containing the day names */
+background: #fff;
+}
+
+.calendar thead .name { /* Cells <TD> containing the day names */
+border-bottom: 1px dotted #ccc;
+padding: 2px;
+text-align: center;
+color: #000;
+}
+
+.calendar thead .weekend { /* How a weekend day name shows in header */
+color: #666;
+}
+
+.calendar thead .hilite { /* How do the buttons in header appear when hover */
+background-color: #444;
+color: #fff;
+padding: 1px;
+}
+
+.calendar thead .active { /* Active (pressed) buttons in header */
+background-color: #CF4723;
+color:#fff;
+padding: 2px 0px 0px 2px;
+}
+
+/* The body part -- contains all the days in month. */
+
+.calendar tbody .day { /* Cells <TD> containing month days dates */
+width: 2em;
+color: #222;
+text-align: right;
+padding: 2px 4px 2px 2px;
+}
+.calendar tbody .day.othermonth {
+font-size: 80%;
+color: #bbb;
+}
+.calendar tbody .day.othermonth.oweekend {
+color: #fbb;
+}
+
+.calendar table .wn {
+padding: 2px 3px 2px 2px;
+border-right: 1px solid #000;
+background: #666;
+}
+
+.calendar tbody .rowhilite td {
+background: #FFF1AF;
+}
+
+.calendar tbody .rowhilite td.wn {
+background: #FFF1AF;
+}
+
+.calendar tbody td.hilite { /* Hovered cells <TD> */
+padding: 1px 3px 1px 1px;
+background:#444 !important;
+color:#fff !important;
+}
+
+.calendar tbody td.active { /* Active (pressed) cells <TD> */
+color:#fff;
+background: #CF4723 !important;
+padding: 2px 2px 0px 2px;
+}
+
+.calendar tbody td.selected { /* Cell showing today date */
+font-weight: bold;
+border: 1px solid #888;
+padding: 1px 3px 1px 1px;
+background: #f5f5f5 !important;
+color: #222 !important;
+}
+
+.calendar tbody td.weekend { /* Cells showing weekend days */
+color: #666;
+}
+
+.calendar tbody td.today { /* Cell showing selected date */
+font-weight: bold;
+color: #CF4723;
+}
+
+.calendar tbody .disabled { color: #999; }
+
+.calendar tbody .emptycell { /* Empty cells (the best is to hide them) */
+visibility: hidden;
+}
+
+.calendar tbody .emptyrow { /* Empty row (some months need less than 6 rows) */
+display: none;
+}
+
+/* The footer part -- status bar and "Close" button */
+
+.calendar tfoot .footrow { /* The <TR> in footer (only one right now) */
+text-align: center;
+background: #556;
+color: #fff;
+}
+
+.calendar tfoot .ttip { /* Tooltip (status bar) cell <TD> */
+background: #dedede;
+color: #222;
+border-top: 1px solid #dedede;
+padding: 1px;
+}
+
+.calendar tfoot .hilite { /* Hover style for buttons in footer */
+background: #aaf;
+border: 1px solid #04f;
+color: #000;
+padding: 1px;
+}
+
+.calendar tfoot .active { /* Active (pressed) style for buttons in footer */
+background: #77c;
+padding: 2px 0px 0px 2px;
+}
+
+/* Combo boxes (menus that display months/years for direct selection) */
+
+.calendar .combo {
+position: absolute;
+display: none;
+top: 0px;
+left: 0px;
+width: 4em;
+border: 1px solid #ccc;
+background: #f5f5f5;
+color: #222;
+font-size: 90%;
+z-index: 100;
+}
+
+.calendar .combo .label,
+.calendar .combo .label-IEfix {
+text-align: center;
+padding: 1px;
+}
+
+.calendar .combo .label-IEfix {
+width: 4em;
+}
+
+.calendar .combo .hilite {
+background: #444;
+color:#fff;
+}
+
+.calendar .combo .active {
+border-top: 1px solid #999;
+border-bottom: 1px solid #999;
+background: #dedede;
+font-weight: bold;
+}/* - - - - - - - - - - - - - - - - - - - - -
+
+PRINT
+
+- - - - - - - - - - - - - - - - - - - - - */
+
+@media print{
+#public, h2{
+margin:0;
+}
+#container{
+border:none !important;
+width:100%;
+}
+#top, #bottom, h1, form .buttons, #printPage, .icon{
+display:none !important;
+}
+form.wufoo{
+margin:0;
+padding:0;
+}
+form.wufoo .instruct{
+display:block;
+}
+}

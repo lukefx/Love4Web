@@ -1,0 +1,154 @@
+// parte generale
+OK::Ok
+ABORT::Annulla
+CANCEL::Cancella
+CHANGE::Cambia
+
+PAGETITLE::Benvenuti su Zenvoo
+
+// menu principale (link)
+MENU_HOME::Home
+MENU_ZENVOO::Zenvoo
+MENU_COMPANY::Società
+MENU_SIGNUP::Registrati
+MENU_CONTACT::Contatto
+
+WELCOMEBACK::Bentornato
+WELCOME::Benvenuto
+WELCOME_BLOCK::Benvenuto su Zenvoo, ogni suggerimento può essere prezioso.<br />
+          <br />
+          <a href="mailto:voo@zenvoo.ch"><strong>voo@zenvoo.ch</strong></a>
+MESSAGECENTER::Message center
+MESSAGECENTERBODY::<br /><br />
+
+// form vari
+USERNAME::Nome utente
+USERNAME_HELP::minimo 6 caratteri
+PASSWORD::Password
+PASSWORD_HELP::minimo 6 caratteri
+CONFIRMPASSWORD::Conferma Password
+CONFIRMPASSWORD_HELP::Conferma la password
+FORGOTPASS::Password dimenticata?
+PDATA::Dati personali
+PDATA_HELP::Inserisci i tuoi dati personali qui
+TITLE::Titolo
+FIRSTNAME::Nome
+LASTNAME::Cognome
+COMPANY::Società
+ADDRESS::Indirizzo
+ADDRESS_HELP::Inserisci il tuo indirizzo qui
+STREET::Indirizzo 1
+STREET2::Indirizzo 2
+CITY::Città
+STATE::Stato / Provincia / Regione
+ZIP::Posta / Codice di avviamento Postale
+COUNTRY::Nazione
+DATEBIRTH::Data di nascita
+DATEBIRTH_HELP::inserisci la tua data di nascita
+SIGNUPUSERINFO::Zenvoo user information
+EMAIL::e-mail
+EMAIL_HELP::Inserisci un email funzionante 
+VALIDEMAIL::email valido
+VALIDEMAIL_HELP::Inserisci un email funzionante
+PHONE::Telefono
+TERMS::Term of use
+CODE::Codice
+CODE_HELP::inserisci il carattere che vedi nella figura
+ACCEPT::Accetta
+ACCEPT_HELP::accetta i termini
+NEWSLETTER::Tienimi aggiornato con le novità di zenvoo
+NEWSLETTER_HELP::Iscriviti alla newsletter di zenvoo
+SUBJECT::Soggetto
+REQUEST::Richiesta
+REQUIRED::Necessario
+REGISTER::Registrati
+SEND::Invia una richiesta
+
+// Homepage
+
+PAGE_HOMEPAGE::<h2>Cos'é Zenvoo?</h2>
+Zenvoo e' una rete virtuale che permette agli utenti di lavorare da qualsiasi luogo con le stesse
+funzionalità e la stessa sicurezza che avrebbero lavorando dal proprio ufficio.
+<br>
+Pensa a Zenvoo come un desktop virtuale con dati, informazioni e applicazioni.
+Pensa a Zenvoo come la possibilità di accedere al tuo desktop da qualsiasi luogo.
+<h2>Questo e' Zenvoo. <span style="color: red;">Provalo</span>. E' facile e veloce!</h2>
+
+// Pagine di presentazione
+
+PAGE_ZENVOO::<h2>Zenvoo</h2>
+Zenvoo è una rete virtuale che offre alle aziende la possibilità di permettere ai propri utenti e 
+partner di lavorare da qualsiasi luogo con la stessa facilità e sicurezza che avrebbero lavorando
+con il computer dell'ufficio.
+<br/><br/>
+
+Zenvoo può essere utilizzato per:
+<br /><br />
+<h2>Virtual Office e lavoro remoto</h2>
+Impiegati e partner che necessitano accesso ad applicazioni
+ e dati ma non lavorano nello stesso luogo. Le vostre applicazioni
+e i vostri dati accessibili ovunque voi siate
+<br /><br />
+<h2>Offici con struttura IT ridotta</h2>
+Le aziende sono confrontante continuamente con i costi e le
+difficoltà della gestione dell'infrastruttura IT. Zenvoo offre
+un approccio innovativo ai sistemi tradizionali estendendo
+
+<br /><br />
+la propria rete direttamente nell'ufficio dei clienti.
+<h2>Business continuity</h2>
+I costi e l'impatto per una società che non è in grado di accedere
+ai propri sistemi e dati possono essere elevati. Zenvoo offre
+le società la possibilità di implementare uffici virtuali offsite.
+
+// Pagina Company
+
+PAGE_COMPANY::<h2>Società</h2>
+Zenvoo è nata con l'idea che persone in luoghi diversi devono avere la 
+possibilità di lavorare come se si trovassero nello stesso ufficio.
+<br /><br />
+Per rispondere a questa richiesta zenvoo ha introdotto la "secured virtualized
+enterprise network".
+
+// Pagina Contact
+
+PAGE_CONTACT_TITLE::Contatto
+PAGE_CONTACT_SUBTITLE::Compila il formulario e premi invia
+
+// Testi nelle pagine su voo.zenvoo.ch
+
+SIGNUPTITLE::Registrati!
+SIGNUPSUBTITLE::Compila il formulario e premi invia per registrarti
+
+POSTACTIVATION::<h2>Congratulationi!</h2>
+       L'account e' stato attivato
+       <br /><br />
+       <a href="https://voo.zenvoo.ch/index.php"><strong>Puoi accedere a Zenvoo</strong></a>
+
+ACTIVATION::<h2>L'account e' stato creato.</h2>
+        Per completare la registrazione sarà necessario attivare l'account con le informazioni che verranno spedite via <strong>{$email}</strong>.
+        <br /><br />
+        L'account deve essere attivitao nelle prossime 24 ore, dopo quel periodo potrebbe essere richiesta una nuova registrazione.
+        <br /><br />
+        <strong>Zenvoo Team</strong>
+
+PAGE_WELCOME::<h2>Benvenuti su Zenvoo!</h2>
+        Questo è il tuo primo login. Per accedere sarà necessario installare il client sul tuo computer.
+        Scegli una delle due opzioni:
+        <ol>
+            <li>Scarica il client per {$client}<br /><a href="welcome.php?step=1"><small>Questo semplice tutorial spiega come installare il client.</small></a></li>
+            <li><a href="applet.php?id=0">Segui questo link per installare il client in modo automatico</a></li>
+        </ol>
+
+PAGE_FORGOT::<h2>Password dimenticata?</h2>
+       <form id="forgot" action="forgot.php" method="post" enctype="application/x-www-form-urlencoded">
+            <label for="email">E-Mail adress:</label><br />
+            <input class="forgot" id="email" name="email" /> <input class="button" type="submit" name="submit" value="Send" />
+       </form>
+
+PROFILETITLE::Profilo
+CHANGEPASSWORD::Cambia password
+OLDPASSWORD::vecchia password
+NEWPASSWORD::Nuova Password
+
+STEP1::Cliccare sul link qui sotto per scaricare il client.
