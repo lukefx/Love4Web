@@ -22,14 +22,38 @@ class Persistent {
         return self::$instance;
     }
 
-    function show()
+    function collect($table)
     {
-        return null;
+        $ret = array();
+
+        $this->connect();
+        $query = "SELECT * FROM `$table` LIMIT " . $this->firstResult . ", " . $this->lastResult;
+        $risultato = mysql_query($query);
+
+        while ($linea = mysql_fetch_array($risultato, MYSQL_ASSOC))
+        {
+            $reflectionObj = new ReflectionClass($table);
+            // Rimuovo l'id e l'hash key
+            $object = $reflectionObj->newInstanceArgs(array_slice($linea, 2, count($linea)-1, true));
+            $ret[] = $object;
+        }
+        $this->disconnect();
+        return $ret;
     }
 
     function setFirstResult($firstResult)
     {
         $this->firstResult = $firstResult;
+    }
+
+    function getFirstResult()
+    {
+        return $this->firstResult;
+    }
+
+    function getLastResult()
+    {
+        return $this->lastResult;
     }
 
     function setLastResult($lastResult)
@@ -42,6 +66,7 @@ class Persistent {
         $classe = get_class($object);
         $variabili = get_object_vars($object);
         $objHash = md5(serialize($object));
+        $return = false;
 
         $this->connect();
         // check che la tabella col nome della classe esista nel db
@@ -54,16 +79,16 @@ class Persistent {
         // controllo che l'oggetto non esista gia' nel DB
         if($this->rowExist($classe, $objHash))
         {
-            // esiste, UPDATE
-            echo "esiste, posso fare update!<br />";
+            // esiste, UPDATE?
         }
         else
         {
-            // non esiste, inserisco i dati
-            echo "non esiste!<br />";
+            // non esiste, inserisco...
             $this->insertData($classe, $object);
+            $return = true;
         }
         $this->disconnect();
+        return $return;
     }
 
     function restore(&$object, $id="a")
@@ -76,7 +101,7 @@ class Persistent {
             $id = mysql_result(mysql_query("SELECT MAX(id) FROM `$class`"), 0);
         }
 
-        $risultato = mysql_query("SELECT * FROM `$class` WHERE id=$id") or die("Query non valida: " . mysql_error());
+        $risultato = mysql_query("SELECT * FROM `$class` WHERE id=$id") or die("[Restore] Query non valida: " . mysql_error());
         $args = mysql_fetch_assoc($risultato);
         $this->disconnect();
         $reflectionObj = new ReflectionClass($class);
