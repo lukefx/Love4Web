@@ -11,32 +11,50 @@ else {
    die("Fatal Error: class folder not found.");
 }
 
-require_once('simpletest/unit_tester.php');
-require_once('simpletest/reporter.php');
+/**
+
+assertTrue($x)	                Fail if $x is false
+assertFalse($x)	                Fail if $x is true
+assertNull($x)	                Fail if $x is set
+assertNotNull($x)	            Fail if $x not set
+assertIsA($x, $t)	            Fail if $x is not the class or type $t
+assertNotA($x, $t)	            Fail if $x is of the class or type $t
+assertEqual($x, $y)	            Fail if $x == $y is false
+assertNotEqual($x, $y)	        Fail if $x == $y is true
+assertWithinMargin($x, $y, $m)	Fail if abs($x - $y) < $m is false
+assertOutsideMargin($x, $y, $m)	Fail if abs($x - $y) < $m is true
+assertIdentical($x, $y)	        Fail if $x == $y is false or a type mismatch
+assertNotIdentical($x, $y)	    Fail if $x == $y is true and types match
+assertReference($x, $y)	        Fail unless $x and $y are the same variable
+assertClone($x, $y)	            Fail unless $x and $y are identical copies
+assertPattern($p, $x)	        Fail unless the regex $p matches $x
+assertNoPattern($p, $x)	        Fail if the regex $p matches $x
+expectError($x)	                Swallows any upcoming matching error
+assert($e)	                    Fail on failed expectation object $e
+
+*/
 
 class PersistentTest extends UnitTestCase
 {
-
-    function setUp()
-    {
-
-    }
 
     function teardown()
     {
         $db = null;
     }
 
-    function test_Store_objects_in_database()
+    function test_drop_DB()
     {
-
         // Clear the DB for this test
         $connessione = mysql_connect("localhost", "root", "") or die("Connessione non riuscita: " . mysql_error());
         mysql_select_db("lukefx") or die("Selezione del database non riuscita");
         $query = "DROP TABLE `news`";
         $risultato = mysql_query($query);
+        $this->assertTrue($risultato);
         mysql_close($connessione);
+    }
 
+    function test_Store_objects_in_database()
+    {
         /** Istanza di variabili */
         $db = Persistent::getInstance();
 
@@ -84,13 +102,10 @@ class PersistentTest extends UnitTestCase
         $this->assertEqual($db->getlastResult(), 2);
 
         $array_obj = $db->collect("news");
-        $this->dump($array_obj);
+        $this->assertNotNull($array_obj);
 
     }
 
 }
-
-$test = &new PersistentTest();
-$test->run(new HtmlReporter());
 
 ?>

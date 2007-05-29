@@ -22,45 +22,6 @@ class Persistent {
         return self::$instance;
     }
 
-    function collect($table)
-    {
-        $ret = array();
-
-        $this->connect();
-        $query = "SELECT * FROM `$table` LIMIT " . $this->firstResult . ", " . $this->lastResult;
-        $risultato = mysql_query($query);
-
-        while ($linea = mysql_fetch_array($risultato, MYSQL_ASSOC))
-        {
-            $reflectionObj = new ReflectionClass($table);
-            // Rimuovo l'id e l'hash key
-            $object = $reflectionObj->newInstanceArgs(array_slice($linea, 2, count($linea)-1, true));
-            $ret[] = $object;
-        }
-        $this->disconnect();
-        return $ret;
-    }
-
-    function setFirstResult($firstResult)
-    {
-        $this->firstResult = $firstResult;
-    }
-
-    function getFirstResult()
-    {
-        return $this->firstResult;
-    }
-
-    function getLastResult()
-    {
-        return $this->lastResult;
-    }
-
-    function setLastResult($lastResult)
-    {
-        $this->lastResult = $lastResult;
-    }
-
     function store($object)
     {
         $classe = get_class($object);
@@ -116,7 +77,8 @@ class Persistent {
             $query .= "`$nome` varchar(255) NOT NULL default '', ";
         }
         $query .= "PRIMARY KEY  (`id`))";
-        $risultato = mysql_query($query) or die("Query non valida: " . mysql_error());
+        if(!mysql_query($query))
+            throw new SQLException(mysql_error());
     }
 
     private function rowExist($table, $hash)
@@ -132,7 +94,8 @@ class Persistent {
         $fields = implode(array_keys($variabili), ',');
         $values = "'".implode(array_values($variabili), "','")."'";
         $query = 'INSERT INTO `'.$table.'` (md5,'.$fields.') VALUES (\''.md5(serialize($object)).'\','.$values.')';
-        $res = mysql_query($query) or die(mysql_error());
+        if(!mysql_query($query))
+            throw new SQLException(mysql_error());
     }
 
     private function tableExists($tablename, $db) {
@@ -149,15 +112,58 @@ class Persistent {
         return false;
     }
 
+    function collect($table)
+    {
+        $ret = array();
+        $this->connect();
+        $query = "SELECT * FROM `$table` LIMIT " . $this->firstResult . ", " . $this->lastResult;
+        if(!($risultato = mysql_query($query)))
+            throw new SQLException(mysql_error());
+
+        while ($linea = mysql_fetch_array($risultato, MYSQL_ASSOC))
+        {
+            $reflectionObj = new ReflectionClass($table);
+            // Rimuovo l'id e l'hash key
+            $object = $reflectionObj->newInstanceArgs(array_slice($linea, 2, count($linea)-1, true));
+            $ret[] = $object;
+        }
+        $this->disconnect();
+        return $ret;
+    }
+
+    function setFirstResult($firstResult)
+    {
+        $this->firstResult = $firstResult;
+    }
+
+    function setLastResult($lastResult)
+    {
+        $this->lastResult = $lastResult;
+    }
+
+    function getFirstResult()
+    {
+        return $this->firstResult;
+    }
+
+    function getLastResult()
+    {
+        return $this->lastResult;
+    }
+
     private function connect()
     {
         $this->connessione = mysql_connect($this->host, $this->db_user, $this->db_pass) or die("Connessione non riuscita: " . mysql_error());
-        mysql_select_db($this->db) or die("Selezione del database non riuscita");
+        if(!mysql_select_db($this->db))
+            throw new SQLException();
+        return true;
     }
 
     private function disconnect()
     {
-        mysql_close($this->connessione);
+        if(!mysql_close($this->connessione))
+            throw new SQLException();
+        return true;
     }
 
 }

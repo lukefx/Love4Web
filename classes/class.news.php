@@ -34,8 +34,7 @@ class news {
     {
         $this->category = $category;
     }
-
-
+    
 }
 
 ?>
