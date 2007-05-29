@@ -22,12 +22,11 @@ class Persistent {
         return self::$instance;
     }
 
-    function store($object)
+    function store($object, $id = 0)
     {
         $classe = get_class($object);
         $variabili = get_object_vars($object);
         $objHash = md5(serialize($object));
-        $return = false;
 
         $this->connect();
         // check che la tabella col nome della classe esista nel db
@@ -38,18 +37,22 @@ class Persistent {
         }
 
         // controllo che l'oggetto non esista gia' nel DB
-        if($this->rowExist($classe, $objHash))
+        if(($old_id = $this->rowExist($classe, $objHash)) != 0)
         {
-            // esiste, UPDATE?
+            // lo stesso oggetto identico esiste gia' nel database
+            return $old_id;
+        }
+        // se viene passato un id eseguo l'update
+        if($id != 0)
+        {
+            $this->updateData($classe, $object, $id);
         }
         else
         {
-            // non esiste, inserisco...
-            $this->insertData($classe, $object);
-            $return = true;
+            $id = $this->insertData($classe, $object);
         }
         $this->disconnect();
-        return $return;
+        return $id;
     }
 
     function restore(&$object, $id="a")
@@ -85,7 +88,11 @@ class Persistent {
     {
         $query = "SELECT id FROM `$table` WHERE md5='$hash'";
         $result = mysql_query($query);
-        return mysql_num_rows($result);
+        $riga = mysql_fetch_assoc($result);
+        if($riga != false) // LMVD
+            return $riga['id'];
+        else
+            return 0;
     }
 
     private function insertData($table, &$object)
@@ -96,6 +103,21 @@ class Persistent {
         $query = 'INSERT INTO `'.$table.'` (md5,'.$fields.') VALUES (\''.md5(serialize($object)).'\','.$values.')';
         if(!mysql_query($query))
             throw new SQLException(mysql_error());
+        return mysql_insert_id();
+    }
+
+    private function updateData($table, &$object, $id)
+    {
+        $variabili = get_object_vars($object);
+        $query = 'UPDATE `'.$table.'` SET md5=\''.md5(serialize($object)).'\'';
+        foreach ($variabili as $nome => $valore) {
+            $query .= ", $nome = '$valore'";
+        }
+        $query .= " WHERE id=$id";
+
+        if(!mysql_query($query))
+            throw new SQLException(mysql_error());
+        return mysql_insert_id();
     }
 
     private function tableExists($tablename, $db) {

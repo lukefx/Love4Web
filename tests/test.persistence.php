@@ -46,7 +46,7 @@ class PersistentTest extends UnitTestCase
     {
         // Clear the DB for this test
         $connessione = mysql_connect("localhost", "root", "") or die("Connessione non riuscita: " . mysql_error());
-        mysql_select_db("lukefx") or die("Selezione del database non riuscita");
+        $this->assertTrue(mysql_select_db("lukefx"));
         $query = "DROP TABLE `news`";
         $risultato = mysql_query($query);
         $this->assertTrue($risultato);
@@ -59,19 +59,18 @@ class PersistentTest extends UnitTestCase
         $db = Persistent::getInstance();
 
         $prova1 = new news("titolo", "testo", "autore", "categoria");
-        $prova2 = new news("titolo", "testo", "autore", "categoria");
+        $prova2 = new news("titolazzo", "testo", "autore", "categoria");
         $prova3 = new news("titoloz", "testoz", "autorez", "categoriaz");
         $prova4 = new news("titoloz", "testoz", "autorez", "categoriaz");
         $prova5 = new news();
-
         $prova6 = new news("titolozz", "testozz", "autorezz", "categoriazz");
         $prova7 = new news("titolozzz", "testozzz", "autorezzz", "categoriazzz");
         $prova8 = new news("titolozzzz", "testozzzz", "autorezzzz", "categoriazzzz");
 
-        $this->assertTrue($db->store($prova1));
-        $this->assertFalse($db->store($prova2));
-        $this->assertTrue($db->store($prova3));
-        $this->assertFalse($db->store($prova4));
+        $this->assertNotNull($id = $db->store($prova1));
+        $this->assertNotNull($db->store($prova2, $id));
+        $this->assertNotNull($db->store($prova3));
+        $this->assertNotNull($db->store($prova4));
 
         $db->store($prova6);
         $db->store($prova7);
