@@ -1,0 +1,93 @@
+/* - - - Default - - - */
+
+/* Logo */
+h1 a {
+background-image:url("none.png"/*tpa=http://leader.wufoo.com/images/themes/logos/none.png*/); 
+min-height:0; 
+height:40px
+}
+* html h1 a {/* IE6 png Support */
+background-image: none;
+filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/images/themes/logos/none.png", sizingMethod="crop")
+}
+
+/* Backgrounds */
+body{
+background-image:none;
+background-color:#ffffff
+}
+h1{
+background-image:none;
+background-color:#DEDEDE
+}
+#container{
+background:#FFFFFF
+}
+.wufoo input.text, .wufoo textarea.textarea, .wufoo select.select{
+background:#FFFFFF url("fieldbg.gif"/*tpa=http://leader.wufoo.com/images/fieldbg.gif*/) repeat-x top
+}
+.wufoo .focused{
+background:#B6DA82;
+}
+.wufoo .instruct{
+background-color:#F5F5F5
+}
+
+/* Borders */
+#container{
+border:1px solid #CCCCCC
+}
+.wufoo .info{
+border-bottom:1px dotted #cccccc
+}
+.wufoo .section{
+border-top:1px dotted #cccccc
+}
+.wufoo .first{
+border:none !important
+}
+.wufoo .instruct{
+border:1px solid #e6e6e6
+}
+
+/* Typography */
+.wufoo .info h2{
+font:160% inherit;
+color:#000000
+}
+.wufoo .info p{
+font:95% inherit;
+color:#444444
+}
+.wufoo .section h3{
+font:110% inherit;
+color:#000000
+}
+.wufoo .section p{
+font:85% inherit;
+color:#444444
+}
+.wufoo label.desc{
+font:95% inherit;
+color:#444444
+}
+.wufoo li div, .wufoo li div p{
+font-family:inherit;
+color:#444444
+}
+.wufoo input.text, .wufoo textarea.textarea, .wufoo select.select, .wufoo label.choice{
+font:100% inherit;
+color:#333333
+}
+.wufoo label.choice{
+color:#444444
+}
+.wufoo .instruct{
+font:85% inherit;
+color:#444444
+}
+
+/* Drop Shadows */
+#top, #bottom{
+visibility:visible
+}
