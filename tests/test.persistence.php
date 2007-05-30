@@ -46,7 +46,7 @@ class PersistentTest extends UnitTestCase
     {
         // Clear the DB for this test
         $connessione = mysql_connect("localhost", "root", "") or die("Connessione non riuscita: " . mysql_error());
-        $this->assertTrue(mysql_select_db("lukefx"));
+        $this->assertTrue(mysql_select_db("lukefx_test"));
         $query = "DROP TABLE `news`";
         $risultato = mysql_query($query);
         $this->assertTrue($risultato);
@@ -57,7 +57,9 @@ class PersistentTest extends UnitTestCase
     {
         /** Istanza di variabili */
         $db = Persistent::getInstance();
+        $db->setDB("lukefx_test");
 
+        // Creo tutti gli oggetti che mi servono
         $prova1 = new news("titolo", "testo", "autore", "categoria");
         $prova2 = new news("titolazzo", "testo", "autore", "categoria");
         $prova3 = new news("titoloz", "testoz", "autorez", "categoriaz");
@@ -67,10 +69,20 @@ class PersistentTest extends UnitTestCase
         $prova7 = new news("titolozzz", "testozzz", "autorezzz", "categoriazzz");
         $prova8 = new news("titolozzz", "testozzz", "autorezzz", "categoriazzz");
 
+        // test insert
         $this->assertNotNull($id = $db->store($prova1));
-        $this->assertNotNull($db->store($prova2, $id));
-        $this->assertNotNull($db->store($prova3));
-        $this->assertNotNull($db->store($prova4));
+        $this->assertIdentical($id, 1);
+
+        // test update
+        $this->assertNotNull($id = $db->store($prova2, $id));
+        $this->assertIdentical($id, 1);
+
+        // testo altri insert
+        $this->assertNotNull($id3 = $db->store($prova3));
+        $this->assertNotNull($id4 = $db->store($prova4));
+
+        // l'oggetto 3 = 4 -> non deve inserirlo e ridarmi l'id 3
+        $this->assertIdentical($id3, $id4);
 
         $db->store($prova6);
         $db->store($prova7);

@@ -198,7 +198,7 @@
 
         $nodes = $cn->item(0)->getElementsByTagName("*");
         foreach($nodes as $node)
-          $this->_translationTable[$language][$path][$node->nodeName] = chop($node->nodeValue);
+          $this->_translationTable[$language][$path][$node->nodeName] = trim($node->nodeValue);
         return true;
       }
       return false;

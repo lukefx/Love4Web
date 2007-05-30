@@ -2,11 +2,11 @@
 
 class Persistent {
 
-    var $connessione;
-    var $host = "localhost";
-    var $db = "lukefx";
-    var $db_user = "root";
-    var $db_pass = "";
+    private $connessione;
+    private $host = "localhost";
+    private $db = "lukefx";
+    private $db_user = "root";
+    private $db_pass = "";
 
     private $firstResult;
     private $lastResult;
@@ -22,10 +22,14 @@ class Persistent {
         return self::$instance;
     }
 
+    function setDB($string)
+    {
+        $this->db = $string;
+    }
+
     function store($object, $id = 0)
     {
         $classe = get_class($object);
-        $variabili = get_object_vars($object);
         $objHash = md5(serialize($object));
 
         $this->connect();
@@ -33,14 +37,14 @@ class Persistent {
         if(!$this->tableExists($classe, $this->db))
         {
             // se non esiste la creo
-            $this->createTable($classe, $variabili);
+            $this->createTable($classe, $object);
         }
 
         // controllo che l'oggetto non esista gia' nel DB
         if(($existent_id = $this->rowExist($classe, $objHash)) != 0)
         {
             // lo stesso oggetto identico esiste gia' nel database
-            return $existent_id;
+            return (int)$existent_id;
         }
         else
         {
@@ -77,13 +81,19 @@ class Persistent {
         $object = $reflectionObj->newInstanceArgs(array_slice($args, 2, count($args)-1, true));
     }
 
-    private function createTable($table, $variabili)
+    private function createTable($table, $object)
     {
+        $variabili = get_object_vars($object);
+
         $query = "CREATE TABLE `$table` (`id` int(11) NOT NULL auto_increment, `md5` varchar(255) NOT NULL, ";
-        foreach ($variabili as $nome => $valore) {
-            $query .= "`$nome` varchar(255) NOT NULL default '', ";
+        foreach ($variabili as $nome => $valore)
+        {
+            if(strlen($valore) > 255)
+                $query .= "`$nome` text NOT NULL default '', ";
+            else
+                $query .= "`$nome` varchar(255) NOT NULL default '', ";
         }
-        $query .= "PRIMARY KEY  (`id`))";
+        $query .= "PRIMARY KEY (`id`))";
         if(!mysql_query($query))
             throw new SQLException(mysql_error());
     }
@@ -138,7 +148,7 @@ class Persistent {
         return false;
     }
 
-    function collect($table)
+    function collect($table, $firstResult=0, $lastResult=1)
     {
         $ret = array();
         $this->connect();

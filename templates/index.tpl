@@ -59,23 +59,16 @@
           <p><lang>explaination</lang></p>
         </div>
       </div>
-      <h3>Obscure.<span>Explanations</span></h3>
-      <p>Sollicitudin et, arcu. Vivamus viverra. Nullam turpis. Vestibulum
-         sed etiam. Lorem ipsum sit amet dolore. Nulla facilisi. Sed tortor.
-         Nullam turpis. Vestibulum sed etiam. Lorem ipsum sit amet dolore.
-         Nulla facilisi. Sed tortor. </p>
-      <p>Sollicitudin et, arcu. Vivamus viverra. Nullam turpis. Vestibulum
-         sed etiam. Lorem ipsum sit amet dolore. Nulla facilisi. Sed tortor.
-         Nullam turpis. Vestibulum sed etiam. Lorem ipsum sit amet dolore.
-         Nulla facilisi. Sed tortor. </p>
-      <div class="divider"></div>
-      <div class="summary">- Those people at <a href="http://www.nodethirtythree.com/">NodeThirtyThree
-        Design</a></div>
-      <h3>Tincidunt.Sed.<span>Vestibulum</span></h3>
-      <p> Quisque suscipit, quam vel aliquet tincidunt, eros nisi ultrices urna, 
-        a interdum est purus vitae leo. Pellentesque a lectus et tortor tincidunt 
-        <a href="#">dignissim etiam</a>. Aliquam erat volutpat. Quisque risus 
-        nunc, eleifend gravida, ullamcorper non, gravida ut, nulla. </p>
+      <!-- dynamic content -->
+
+      {foreach from=$news key=id item=news_data}
+          <h3>{$news_data->title}</span></h3>
+          {$news_data->text}
+          <div class="divider"></div>
+          <div class="summary">- {$news_data->author}</div>
+      {/foreach}
+
+      <!-- end dynamic content -->
     </div>
   </div>
 </div>
