@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <config>
-  <Title>Love4Web Framework</Title>
   <TemplateDir>tempdir</TemplateDir>
   <ClassesDir>tempdir</ClassesDir>
   <CompiledTemplateDir>tempdir</CompiledTemplateDir>

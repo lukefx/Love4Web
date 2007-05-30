@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<lang>
+    <pagetitle>Love4Web Framework - english</pagetitle>
+    <slogan>Do you love web too?</slogan>
+
+    <!-- Menu -->
+    <homepage>Site Homepage</homepage>
+    <blog>Blog</blog>
+    <other>Other</other>
+    <about>About</about>
+    <contact>Contact</contact>
+
+    <explaination>Sollicitudin et, arcu. Vivamus viverra. Nullam turpis. Vestibulum sed etiam. Lorem ipsum sit amet dolore. Nulla facilisi. Sed tortor.
+      Nullam turpis. Vestibulum sed etiam. Lorem ipsum sit amet dolore.<br />
+      Nulla facilisi. Sed tortor.
+    </explaination>
+
+</lang>

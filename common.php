@@ -2,6 +2,13 @@
 
 session_start();
 
+// funzione di debugging
+function dump($array) {
+	echo "<PRE>";
+	print_r($array);
+	echo "</PRE>";
+}
+
 include_once("libs/SmartyML.class.php");
 
 if ($dh = opendir("classes"))
@@ -17,16 +24,6 @@ if ($dh = opendir("classes"))
 else
 {
     die("Fatal Error: class folder not found.");
-}
-
-/* Carico le config da XML */
-$config = new Configuration();
-
-// funzione di debugging
-function print_array($array) {
-	echo "<PRE>";
-	print_r($array);
-	echo "</PRE>";
 }
 
 ?>

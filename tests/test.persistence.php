@@ -11,7 +11,7 @@ else {
    die("Fatal Error: class folder not found.");
 }
 
-/**
+/*
 
 assertTrue($x)	                Fail if $x is false
 assertFalse($x)	                Fail if $x is true
@@ -65,7 +65,7 @@ class PersistentTest extends UnitTestCase
         $prova5 = new news();
         $prova6 = new news("titolozz", "testozz", "autorezz", "categoriazz");
         $prova7 = new news("titolozzz", "testozzz", "autorezzz", "categoriazzz");
-        $prova8 = new news("titolozzzz", "testozzzz", "autorezzzz", "categoriazzzz");
+        $prova8 = new news("titolozzz", "testozzz", "autorezzz", "categoriazzz");
 
         $this->assertNotNull($id = $db->store($prova1));
         $this->assertNotNull($db->store($prova2, $id));

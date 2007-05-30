@@ -1,12 +1,5 @@
 <?php
 
-class SQLException extends Exception
-{
-    function SQLException($error)
-    {
-        echo $error;
-    }
-}
-
+class SQLException extends ExtendedException { }
 
 ?>

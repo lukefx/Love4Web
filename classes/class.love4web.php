@@ -2,20 +2,36 @@
 
 class love4web {
 
-    var $template;
+    private $template;
+    private $config;
+    private $smarty;
 
-    function run()
+    function love4web()
     {
-      $smarty = new SmartyML($_SESSION['lang']);
-      $smarty->force_compile = true;
-      //$smarty->debugging = true;
-      $smarty->assign("notice", $_SESSION['notice']);
-      $smarty->display($this->template);
+        $this->smarty = new SmartyML($_SESSION['lang']);
+        $this->smarty->force_compile = true;
+    }
+
+    function run($debug = false)
+    {
+        if($debug)
+            $this->smarty->debugging = true;
+        $this->smarty->display($this->template);
+    }
+
+    function loadConfig()
+    {
+        $this->config = new Configuration();
     }
 
     function addTemplate($name)
     {
         $this->template = $name;
+    }
+
+    function templateAssign($key, $what)
+    {
+        $this->smarty->assign($key, $what);
     }
 
 }

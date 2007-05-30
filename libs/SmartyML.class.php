@@ -16,7 +16,7 @@
     // load translations (if needed)
     $GLOBALS['_NG_LANGUAGE_']->loadCurrentTranslationTable();
     // Now replace the matched language strings with the entry in the file
-    return preg_replace_callback('/##(.+?)##/', '_compile_lang', $tpl_source);
+    return preg_replace_callback('/\<lang>(.+?)\<\/lang>/', '_compile_lang', $tpl_source);
   }
 
   /**
@@ -181,7 +181,7 @@
         die ("LANGUAGE Error: Language '$language' not available");
       }
       if(empty($path))
-        $path = 'languages/'.$this->_languageTable[$locale].'/global.lng';
+        $path = 'languages/'.$this->_languageTable[$locale].'/global.xml';
       if (isset($this->_loadedTranslationTables[$language])) {
         if (in_array($path, $this->_loadedTranslationTables[$language])) {
           // Translation table was already loaded
@@ -189,24 +189,16 @@
         }
       }
       if (file_exists($path)) {
-        $entries = file($path);
+        $doc = new DOMDocument();
+        $doc->load($path);
+        $cn = $doc->getElementsByTagName("lang");
+
         $this->_translationTable[$language][$path] = Array();
         $this->_loadedTranslationTables[$language][] = $path;
-        foreach ($entries as $row) {
-          if (substr(ltrim($row),0,2) == '//') // ignore comments
-            continue;
-          $keyValuePair = explode('::',$row);
-          // multiline values: the first line with an equal sign '=' will start a new key=value pair
-          if(sizeof($keyValuePair) == 1) {
-            $this->_translationTable[$language][$path][$key] .= ' ' . chop($keyValuePair[0]);
-            continue;
-          }
-          $key = trim($keyValuePair[0]);
-          $value = $keyValuePair[1];
-          if (!empty($key)) {
-            $this->_translationTable[$language][$path][$key] = chop($value);
-          }
-        }
+
+        $nodes = $cn->item(0)->getElementsByTagName("*");
+        foreach($nodes as $node)
+          $this->_translationTable[$language][$path][$node->nodeName] = chop($node->nodeValue);
         return true;
       }
       return false;

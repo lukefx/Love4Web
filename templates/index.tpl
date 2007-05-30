@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<title>Love4Web - Php Web Framework</title>
+<title><lang>pagetitle</lang></title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link rel="stylesheet" type="text/css" href="styles/style.css" />
@@ -10,10 +10,10 @@
 <body>
 
 <div id="header">
-	
+
   <div id="header_inner"> 
     <h1><span>Framework.</span>Home</h1>
-    <div id="slogan"></div>
+    <div id="slogan"><lang>slogan</lang></div>
   </div>
 </div>
 
@@ -21,11 +21,11 @@
   <div id="lcol"> 
     <div id="menu"> 
       <ul>
-        <li><a href="index.php">Site Homepage<span></span></a></li>
-        <li><a href="http://blog.lukefx.com">Blog<span></span></a></li>
-        <li><a href="#">Other<span></span></a></li>
-        <li><a href="#">About<span></span></a></li>
-        <li><a href="#">Contact<span></span></a></li>
+        <li><a href="index.php"><lang>homepage</lang><span></span></a></li>
+        <li><a href="http://blog.lukefx.com"><lang>blog</lang><span></span></a></li>
+        <li><a href="#"><lang>other</lang><span></span></a></li>
+        <li><a href="#"><lang>about</lang><span></span></a></li>
+        <li><a href="#"><lang>contact</lang><span></span></a></li>
       </ul>
     </div>
     <div id="menu_end"></div>
@@ -39,10 +39,10 @@
         <li><a href="#">Cursus sed tempus</a></li>
       </ul>
       <h3>Aliquam.<span>Cursus</span></h3>
-      <p><a href="#">Sollicitudin sed</a> arcu et vivamus viverra. Nullam turpis. 
+      <p><a href="#">Sollicitudin sed</a> arcu et vivamus viverra. Nullam turpis.
         Vestibulum Nullam turpis vestibulum.</p>
       <div class="divider"></div>
-      <p><a href="#">Vestibulum veroeros</a> sed arcu et vivamus viverra lorem 
+      <p><a href="#">Vestibulum veroeros</a> sed arcu et vivamus viverra lorem
         ipsum dolor sit amet dolore nulla facilisi.</p>
     </div>
   </div>
@@ -56,10 +56,7 @@
             <div>Fig 1. Obscure?</div>
           </div>
           <h2>Some obscure headline</h2>
-          <p>Sollicitudin et, arcu. Vivamus viverra. Nullam turpis. Vestibulum
-            sed etiam. Lorem ipsum sit amet dolore. Nulla facilisi. Sed tortor.
-            Nullam turpis. Vestibulum sed etiam. Lorem ipsum sit amet dolore.
-            Nulla facilisi. Sed tortor.</p>
+          <p><lang>explaination</lang></p>
         </div>
       </div>
       <h3>Obscure.<span>Explanations</span></h3>

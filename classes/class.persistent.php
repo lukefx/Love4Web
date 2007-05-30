@@ -37,30 +37,34 @@ class Persistent {
         }
 
         // controllo che l'oggetto non esista gia' nel DB
-        if(($old_id = $this->rowExist($classe, $objHash)) != 0)
+        if(($existent_id = $this->rowExist($classe, $objHash)) != 0)
         {
             // lo stesso oggetto identico esiste gia' nel database
-            return $old_id;
-        }
-        // se viene passato un id eseguo l'update
-        if($id != 0)
-        {
-            $this->updateData($classe, $object, $id);
+            return $existent_id;
         }
         else
         {
-            $id = $this->insertData($classe, $object);
+            if($id != 0)
+            {
+                // se viene passato un id eseguo l'update
+                $this->updateData($classe, $object, $id);
+            }
+            else
+            {
+                // altrimenti lo inserisco
+                $id = $this->insertData($classe, $object);
+            }
         }
         $this->disconnect();
         return $id;
     }
 
-    function restore(&$object, $id="a")
+    function restore(&$object, $id=0)
     {
         $class = get_class($object);
         $this->connect();
 
-        if($id == "a")
+        if(!$id)
         {
             $id = mysql_result(mysql_query("SELECT MAX(id) FROM `$class`"), 0);
         }
@@ -89,7 +93,7 @@ class Persistent {
         $query = "SELECT id FROM `$table` WHERE md5='$hash'";
         $result = mysql_query($query);
         $riga = mysql_fetch_assoc($result);
-        if($riga != false) // LMVD
+        if($riga)
             return $riga['id'];
         else
             return 0;
@@ -99,7 +103,7 @@ class Persistent {
     {
         $variabili = get_object_vars($object);
         $fields = implode(array_keys($variabili), ',');
-        $values = "'".implode(array_values($variabili), "','")."'";
+        $values = "'".implode(array_map('mysql_real_escape_string', (array_values($variabili))), "','")."'";
         $query = 'INSERT INTO `'.$table.'` (md5,'.$fields.') VALUES (\''.md5(serialize($object)).'\','.$values.')';
         if(!mysql_query($query))
             throw new SQLException(mysql_error());
@@ -111,7 +115,7 @@ class Persistent {
         $variabili = get_object_vars($object);
         $query = 'UPDATE `'.$table.'` SET md5=\''.md5(serialize($object)).'\'';
         foreach ($variabili as $nome => $valore) {
-            $query .= ", $nome = '$valore'";
+            $query .= ", $nome = '".mysql_real_escape_string($valore)."'";
         }
         $query .= " WHERE id=$id";
 

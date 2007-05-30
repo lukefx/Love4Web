@@ -11,7 +11,7 @@ else {
    die("Fatal Error: class folder not found.");
 }
 
-/**
+/*
 
 assertTrue($x)	                Fail if $x is false
 assertFalse($x)	                Fail if $x is true
