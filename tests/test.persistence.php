@@ -117,6 +117,14 @@ class PersistentTest extends UnitTestCase
 
     }
 
+    function test_search_objects()
+    {
+        $db = Persistent::getInstance();
+
+        // test not complete
+        $db->search("news", "");
+    }
+
 }
 
 ?>

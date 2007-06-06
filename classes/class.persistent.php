@@ -81,6 +81,65 @@ class Persistent {
         $object = $reflectionObj->newInstanceArgs(array_slice($args, 2, count($args)-1, true));
     }
 
+    function collect($table, $firstResult=0, $lastResult=1)
+    {
+        $ret = array();
+        $this->connect();
+        $query = "SELECT * FROM `$table` LIMIT " . $this->firstResult . ", " . $this->lastResult;
+        if(!($risultato = mysql_query($query)))
+            throw new SQLException(mysql_error());
+
+        while ($linea = mysql_fetch_array($risultato, MYSQL_ASSOC))
+        {
+            $reflectionObj = new ReflectionClass($table);
+            // Rimuovo l'id e l'hash key
+            $object = $reflectionObj->newInstanceArgs(array_slice($linea, 2, count($linea)-1, true));
+            $ret[] = $object;
+        }
+        $this->disconnect();
+        return $ret;
+    }
+
+    // not complete
+    function search()
+    {
+        $ret = array();
+        $this->connect();
+        $query = "SELECT * FROM `$table` LIMIT " . $this->firstResult . ", " . $this->lastResult;
+        if(!($risultato = mysql_query($query)))
+            throw new SQLException(mysql_error());
+
+        while ($linea = mysql_fetch_array($risultato, MYSQL_ASSOC))
+        {
+            $reflectionObj = new ReflectionClass($table);
+            // Rimuovo l'id e l'hash key
+            $object = $reflectionObj->newInstanceArgs(array_slice($linea, 2, count($linea)-1, true));
+            $ret[] = $object;
+        }
+        $this->disconnect();
+        return $ret;
+    }
+
+    function setFirstResult($firstResult)
+    {
+        $this->firstResult = $firstResult;
+    }
+
+    function setLastResult($lastResult)
+    {
+        $this->lastResult = $lastResult;
+    }
+
+    function getFirstResult()
+    {
+        return $this->firstResult;
+    }
+
+    function getLastResult()
+    {
+        return $this->lastResult;
+    }
+
     private function createTable($table, $object)
     {
         $variabili = get_object_vars($object);
@@ -146,45 +205,6 @@ class Persistent {
                 return true;
         }
         return false;
-    }
-
-    function collect($table, $firstResult=0, $lastResult=1)
-    {
-        $ret = array();
-        $this->connect();
-        $query = "SELECT * FROM `$table` LIMIT " . $this->firstResult . ", " . $this->lastResult;
-        if(!($risultato = mysql_query($query)))
-            throw new SQLException(mysql_error());
-
-        while ($linea = mysql_fetch_array($risultato, MYSQL_ASSOC))
-        {
-            $reflectionObj = new ReflectionClass($table);
-            // Rimuovo l'id e l'hash key
-            $object = $reflectionObj->newInstanceArgs(array_slice($linea, 2, count($linea)-1, true));
-            $ret[] = $object;
-        }
-        $this->disconnect();
-        return $ret;
-    }
-
-    function setFirstResult($firstResult)
-    {
-        $this->firstResult = $firstResult;
-    }
-
-    function setLastResult($lastResult)
-    {
-        $this->lastResult = $lastResult;
-    }
-
-    function getFirstResult()
-    {
-        return $this->firstResult;
-    }
-
-    function getLastResult()
-    {
-        return $this->lastResult;
     }
 
     private function connect()
