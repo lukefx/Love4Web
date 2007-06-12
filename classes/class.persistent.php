@@ -11,15 +11,19 @@ class Persistent {
     private $firstResult;
     private $lastResult;
 
-    static private $instance = NULL;
-
-    static function getInstance()
+    static function getInstance($config = null)
     {
-        if(self::$instance == NULL)
-        {
-            self::$instance = new Persistent();
-        }
-        return self::$instance;
+        if(!$config)
+            $config = new Configuration();
+        return new Persistent($config->DbHost, $config->Database, $config->DbUsername, $config->DbPassword);
+    }
+
+    private function Persistent($host, $db, $db_user, $db_pass)
+    {
+        $this->host = $host;
+        $this->db = $db;
+        $this->db_user = $db_user;
+        $this->db_pass = $db_pass;
     }
 
     function setDB($string)
@@ -81,10 +85,17 @@ class Persistent {
         $object = $reflectionObj->newInstanceArgs(array_slice($args, 2, count($args)-1, true));
     }
 
-    function collect($table, $firstResult=0, $lastResult=1)
+    function collect($table, $firstResult = 0, $lastResult = 0)
     {
         $ret = array();
         $this->connect();
+
+        if(!$firstResult || !$lastResult)
+        {
+            $this->firstResult = 0;
+            $this->lastResult = 1;
+        }
+
         $query = "SELECT * FROM `$table` LIMIT " . $this->firstResult . ", " . $this->lastResult;
         if(!($risultato = mysql_query($query)))
             throw new SQLException(mysql_error());
@@ -100,12 +111,11 @@ class Persistent {
         return $ret;
     }
 
-    // not complete
-    function search()
+    function search($table, $where)
     {
         $ret = array();
         $this->connect();
-        $query = "SELECT * FROM `$table` LIMIT " . $this->firstResult . ", " . $this->lastResult;
+        $query = "SELECT * FROM `$table` WHERE $where";
         if(!($risultato = mysql_query($query)))
             throw new SQLException(mysql_error());
 

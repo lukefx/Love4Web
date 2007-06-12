@@ -56,7 +56,8 @@ class PersistentTest extends UnitTestCase
     function test_Store_objects_in_database()
     {
         /** Istanza di variabili */
-        $db = Persistent::getInstance();
+        $configs = new Configuration('../configs/config.xml');
+        $db = Persistent::getInstance($configs);
         $db->setDB("lukefx_test");
 
         // Creo tutti gli oggetti che mi servono
@@ -91,7 +92,9 @@ class PersistentTest extends UnitTestCase
 
     function test_Restore_objects_from_database()
     {
-        $db = Persistent::getInstance();
+        $configs = new Configuration('../configs/config.xml');
+        $db = Persistent::getInstance($configs);
+        $db->setDB("lukefx_test");
 
         $prova5 = new news();
         $prova6 = new news("titoloz", "testoz", "autorez", "categoriaz");
@@ -104,7 +107,9 @@ class PersistentTest extends UnitTestCase
 
     function test_Collect_objects_from_database()
     {
-        $db = Persistent::getInstance();
+        $configs = new Configuration('../configs/config.xml');
+        $db = Persistent::getInstance($configs);
+        $db->setDB("lukefx_test");
 
         $db->setFirstResult(1);
         $db->setLastResult(2);
@@ -119,10 +124,13 @@ class PersistentTest extends UnitTestCase
 
     function test_search_objects()
     {
-        $db = Persistent::getInstance();
+        $configs = new Configuration('../configs/config.xml');
+        $db = Persistent::getInstance($configs);
 
-        // test not complete
-        $db->search("news", "");
+        $array_obj = $db->search("news", "id=1");
+        $this->assertNotNull($array_obj);
+        $this->assertEqual($db->search("news", "id=-1"), array());
+
     }
 
 }

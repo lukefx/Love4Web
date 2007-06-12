@@ -1,6 +1,10 @@
 <?xml version="1.0"?>
 <config>
-  <TemplateDir>tempdir</TemplateDir>
-  <ClassesDir>tempdir</ClassesDir>
-  <CompiledTemplateDir>tempdir</CompiledTemplateDir>
+  <TemplateDir>templates</TemplateDir>
+  <CompiledTemplateDir>templates_c</CompiledTemplateDir>
+  <ClassesDir>classes</ClassesDir>
+  <Database>lukefx</Database>
+  <DbUsername>root</DbUsername>
+  <DbPassword></DbPassword>
+  <DbHost>localhost</DbHost>
 </config>

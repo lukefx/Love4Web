@@ -19,11 +19,6 @@ class love4web {
         $this->smarty->display($this->template);
     }
 
-    function loadConfig()
-    {
-        $this->config = new Configuration();
-    }
-
     function addTemplate($name)
     {
         $this->template = $name;

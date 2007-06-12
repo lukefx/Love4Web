@@ -5,7 +5,18 @@ class Configuration
     private $configFile;
     private $items = array();
 
-    function __construct($configFile = 'configs/config.xml')
+    static private $instance = NULL;
+
+    static function getInstance()
+    {
+        if(self::$instance == NULL)
+        {
+            self::$instance = new Configuration();
+        }
+        return self::$instance;
+    }
+
+    function Configuration($configFile = 'configs/config.xml')
     {
         $this->configFile = $configFile;
         $this->parse();
