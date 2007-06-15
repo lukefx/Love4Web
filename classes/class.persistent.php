@@ -85,16 +85,13 @@ class Persistent {
         $object = $reflectionObj->newInstanceArgs(array_slice($args, 2, count($args)-1, true));
     }
 
-    function collect($table, $firstResult = 0, $lastResult = 0)
+    function collect($table, $firstResult = 0, $lastResult = 1)
     {
         $ret = array();
         $this->connect();
 
-        if(!$firstResult || !$lastResult)
-        {
-            $this->firstResult = 0;
-            $this->lastResult = 1;
-        }
+        $this->firstResult = $firstResult;
+        $this->lastResult = $lastResult;
 
         $query = "SELECT * FROM `$table` LIMIT " . $this->firstResult . ", " . $this->lastResult;
         if(!($risultato = mysql_query($query)))
@@ -130,6 +127,15 @@ class Persistent {
         return $ret;
     }
 
+
+    // Not Complete
+    function delete($id)
+    {
+        $this->connect();
+        $query = "DELETE FROM `` WHERE id=$id";
+        $this->disconnect();
+    }
+
     function setFirstResult($firstResult)
     {
         $this->firstResult = $firstResult;
@@ -149,6 +155,8 @@ class Persistent {
     {
         return $this->lastResult;
     }
+
+    /* Private function for internal use only */
 
     private function createTable($table, $object)
     {

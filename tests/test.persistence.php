@@ -62,10 +62,14 @@ class PersistentTest extends UnitTestCase
 
         // Creo tutti gli oggetti che mi servono
         $prova1 = new news("titolo", "testo", "autore", "categoria");
+
         $prova2 = new news("titolazzo", "testo", "autore", "categoria");
+
         $prova3 = new news("titoloz", "testoz", "autorez", "categoriaz");
         $prova4 = new news("titoloz", "testoz", "autorez", "categoriaz");
+
         $prova5 = new news();
+
         $prova6 = new news("titolozz", "testozz", "autorezz", "categoriazz");
         $prova7 = new news("titolozzz", "testozzz", "autorezzz", "categoriazzz");
         $prova8 = new news("titolozzz", "testozzz", "autorezzz", "categoriazzz");
@@ -88,6 +92,7 @@ class PersistentTest extends UnitTestCase
         $db->store($prova6);
         $db->store($prova7);
         $db->store($prova8);
+        
     }
 
     function test_Restore_objects_from_database()
@@ -102,6 +107,8 @@ class PersistentTest extends UnitTestCase
         $db->restore($prova5, 2);
         $this->assertIsA($prova5, "news");
         $this->assertIdentical($prova5, $prova6);
+
+
 
     }
 
@@ -118,6 +125,9 @@ class PersistentTest extends UnitTestCase
         $this->assertEqual($db->getlastResult(), 2);
 
         $array_obj = $db->collect("news");
+        $this->assertNotNull($array_obj);
+
+        $array_obj = $db->collect("news", 0, 2);
         $this->assertNotNull($array_obj);
 
     }
