@@ -7,16 +7,16 @@ class Configuration
 
     static private $instance = NULL;
 
-    static function getInstance()
+    static function getInstance($configFile = 'configs/config.xml')
     {
         if(self::$instance == NULL)
         {
-            self::$instance = new Configuration();
+            self::$instance = new Configuration($configFile);
         }
         return self::$instance;
     }
 
-    function Configuration($configFile = 'configs/config.xml')
+    private function Configuration($configFile)
     {
         $this->configFile = $configFile;
         $this->parse();
@@ -55,6 +55,21 @@ class Configuration
         copy($this->configFile, $this->configFile.'.bak');
         $doc->save($this->configFile);
     }
+
 }
+    // Out of class for easy call...easy and dirty
+    function bool($var) {
+        switch (strtolower($var)) {
+            case ("true"):
+                return true;
+                break;
+            case ("false"):
+                return false;
+                break;
+        default:
+                return false;
+                break;
+        }
+    }
 
 ?>

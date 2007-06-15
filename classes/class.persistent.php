@@ -14,7 +14,7 @@ class Persistent {
     static function getInstance($config = null)
     {
         if(!$config)
-            $config = new Configuration();
+            $config = Configuration::getInstance();
         return new Persistent($config->DbHost, $config->Database, $config->DbUsername, $config->DbPassword);
     }
 

@@ -13,7 +13,7 @@ class XmlrpcServer extends IXR_Server {
         );
     }
 
-    // test function
+    // test functions
     function sayHello($args)
     {
         return 'Hello!';
@@ -27,6 +27,9 @@ class XmlrpcServer extends IXR_Server {
     }
 }
 
-$server = new XmlrpcServer();
+$config = Configuration::getInstance();
+
+if(bool($config->xmlrpc))
+    $server = new XmlrpcServer();
 
 ?>

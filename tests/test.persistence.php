@@ -56,7 +56,7 @@ class PersistentTest extends UnitTestCase
     function test_Store_objects_in_database()
     {
         /** Istanza di variabili */
-        $configs = new Configuration('../configs/config.xml');
+        $configs = Configuration::getInstance('../configs/config.xml');
         $db = Persistent::getInstance($configs);
         $db->setDB("lukefx_test");
 
@@ -97,7 +97,7 @@ class PersistentTest extends UnitTestCase
 
     function test_Restore_objects_from_database()
     {
-        $configs = new Configuration('../configs/config.xml');
+        $configs = Configuration::getInstance('../configs/config.xml');
         $db = Persistent::getInstance($configs);
         $db->setDB("lukefx_test");
 
@@ -114,7 +114,7 @@ class PersistentTest extends UnitTestCase
 
     function test_Collect_objects_from_database()
     {
-        $configs = new Configuration('../configs/config.xml');
+        $configs = Configuration::getInstance('../configs/config.xml');
         $db = Persistent::getInstance($configs);
         $db->setDB("lukefx_test");
 
@@ -134,7 +134,7 @@ class PersistentTest extends UnitTestCase
 
     function test_search_objects()
     {
-        $configs = new Configuration('../configs/config.xml');
+        $configs = Configuration::getInstance('../configs/config.xml');
         $db = Persistent::getInstance($configs);
 
         $array_obj = $db->search("news", "id=1");
