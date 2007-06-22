@@ -142,7 +142,9 @@
     function setCurrentLocale($locale) {
       $language = $this->_languageTable[$locale];
       if (empty($language)) {
-        die ("LANGUAGE Error: Unsupported locale '$locale'");
+        //die ("LANGUAGE Error: Unsupported locale '$locale'");
+        //throw new Exception("LANGUAGE Error: Unsupported locale '$locale'");
+        $language = "eng";
       }
       $this->_currentLocale = $locale;
       return $this->setCurrentLanguage($language);

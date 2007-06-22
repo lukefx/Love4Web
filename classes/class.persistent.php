@@ -3,10 +3,10 @@
 class Persistent {
 
     private $connessione;
-    private $host = "localhost";
-    private $db = "lukefx";
-    private $db_user = "root";
-    private $db_pass = "";
+    private $host;
+    private $db;
+    private $db_user;
+    private $db_pass;
 
     private $firstResult;
     private $lastResult;
@@ -77,7 +77,9 @@ class Persistent {
             $id = mysql_result(mysql_query("SELECT MAX(id) FROM `$class`"), 0);
         }
 
-        $risultato = mysql_query("SELECT * FROM `$class` WHERE id=$id") or die("[Restore] Query non valida: " . mysql_error());
+        if(!$risultato = mysql_query("SELECT * FROM `$class` WHERE id=$id"))
+            throw new SQLException(mysql_error());
+
         $args = mysql_fetch_assoc($risultato);
         $this->disconnect();
         $reflectionObj = new ReflectionClass($class);
@@ -227,16 +229,17 @@ class Persistent {
 
     private function connect()
     {
-        $this->connessione = mysql_connect($this->host, $this->db_user, $this->db_pass) or die("Connessione non riuscita: " . mysql_error());
+        if(!$this->connessione = mysql_connect($this->host, $this->db_user, $this->db_pass))
+            throw new SQLException(mysql_error());
         if(!mysql_select_db($this->db))
-            throw new SQLException();
+            throw new Exception(mysql_error());
         return true;
     }
 
     private function disconnect()
     {
         if(!mysql_close($this->connessione))
-            throw new SQLException();
+            throw new SQLException(mysql_error());
         return true;
     }
 

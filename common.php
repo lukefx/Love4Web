@@ -2,7 +2,18 @@
 
 include_once("libs/SmartyML.class.php");
 
-if ($dh = opendir("classes"))
+// Final Catch per le eccezioni che raggiungo la main page
+function myException($exception)
+{
+    $website = new SmartyML($_SESSION['lang']);
+    $website->assign("error", $exception->getMessage());
+    $website->display("exception.tpl");
+    exit();
+}
+set_exception_handler('myException');
+
+/* Inclusione di tutto il framework */
+if ($dh = @opendir("classes"))
 {
     while (($file = readdir($dh)) !== false)
     {
@@ -14,7 +25,7 @@ if ($dh = opendir("classes"))
 }
 else
 {
-    die("Class folder not found");
+    throw new Exception("Class folder not found");
 }
 
 $session = new Session();

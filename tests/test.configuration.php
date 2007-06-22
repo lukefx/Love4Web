@@ -49,7 +49,7 @@ class ConfigurationTest extends UnitTestCase
 
     function test_load_config()
     {
-        $c = new Configuration('../configs/config.xml');
+        $c = Configuration::getInstance('../configs/config.xml');
         $this->assertNotNull($c);
         $this->assertIsA($c->TemplateDir, "string");
         $this->expectError($c->prova, "Prova doesn't exists");
