@@ -287,6 +287,15 @@ position: relative;
 top: -5px;
 }
 
+.content
+{
+position: relative;
+margin-top: 5px;
+padding: 25px 20px 0px 20px;
+background-image:url(../images/a2.gif);
+background-repeat:repeat-x;
+}
+
 .box
 {
 position: relative;
