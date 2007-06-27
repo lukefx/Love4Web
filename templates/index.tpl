@@ -5,7 +5,16 @@
 <title><lang>pagetitle</lang></title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
+
+<script type="text/javascript" src="js/prototype.js"></script>
+<script type="text/javascript" src="js/scriptaculous.js"></script>
+<script type="text/javascript" src="js/modalbox.js"></script>
+<script type="text/javascript" src="js/validation.js"></script>
+
 <link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/validation.css" />
+<link rel="stylesheet" href="css/modalbox.css" type="text/css" media="screen" />
+
 </head>
 <body>
 
@@ -21,11 +30,13 @@
   <div id="lcol"> 
     <div id="menu"> 
       <ul>
+        {literal}
         <li><a href="index.php"><lang>homepage</lang><span></span></a></li>
         <li><a href="http://blog.lukefx.com"><lang>blog</lang><span></span></a></li>
         <li><a href="#"><lang>other</lang><span></span></a></li>
         <li><a href="#"><lang>about</lang><span></span></a></li>
-        <li><a href="#"><lang>contact</lang><span></span></a></li>
+        <li><a href="contact.php" title="<lang>contact</lang>" onclick="Modalbox.show(this.title, this.href, {width: 600, height: 540});return false;"><lang>contact</lang><span></span></a></li>
+        {/literal}
       </ul>
     </div>
     <div id="menu_end"></div>
