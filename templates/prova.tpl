@@ -12,6 +12,15 @@
 <script type="text/javascript" src="js/scriptaculous.js"></script>
 <script type="text/javascript" src="js/modalbox.js"></script>
 
+<script language="javascript" type="text/javascript">
+{literal}
+tinyMCE.init({
+	mode : "textareas",
+	theme : "simple"
+});
+{/literal}
+</script>
+
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/validation.css" />
 <link rel="stylesheet" href="css/modalbox.css" type="text/css" media="screen" />
@@ -23,16 +32,7 @@
 
   <div id="header_inner"> 
     <h1><span>Framework.</span>Home</h1>
-    <div id="slogan"><a href="#" onclick="
-          {literal}
-          new Ajax.Request('logout.php', {
-              method: 'get',
-              onSuccess: function(transport) {
-                    alert('logged out');
-              }
-          });
-          {/literal}
-          ">logout</a></div>
+    <div id="slogan"><lang>slogan</lang></div>
   </div>
 </div>
 
@@ -67,6 +67,7 @@
         ipsum dolor sit amet dolore nulla facilisi.</p>
     </div>
   </div>
+
   <div id="rcol">
     <div id="rcontent">
       <h1>New<span>.Website<sup>2.0</sup></span></h1>
@@ -80,20 +81,7 @@
           <p><lang>explaination</lang></p>
         </div>
       </div>
-      <!-- dynamic content -->
 
-      {foreach from=$news key=id item=news_data}
-        <div class="news_{$id}">
-          <h3 id="news_{$id}_title">{$news_data->title}</h3>
-          <div id="news_{$id}_text">
-          {$news_data->text}
-          </div>
-          <div class="divider"></div>
-          <div class="summary">- {$news_data->author}</div>
-        </div>
-      {/foreach}
-
-      <!-- end dynamic content -->
     </div>
   </div>
 </div>

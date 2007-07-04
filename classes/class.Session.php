@@ -3,7 +3,6 @@
 class Session {
 
     var $id;
-    var $data;
     var $log;
     var $dir;
     var $filename;
@@ -41,9 +40,9 @@ class Session {
 
     function requireLogin()
     {
-        if (!$_SESSION['logged_in'])
+        if (!$this->isLoggedIn())
         {
-            $this->data['page_destination'] = $_SERVER['SCRIPT_NAME'];
+            $_SESSION['page_destination'] = $_SERVER['SCRIPT_NAME'];
             header("Location: ".$this->login_page);
         }
     }
@@ -51,7 +50,7 @@ class Session {
     function logged()
     {
         $_SESSION['logged_in'] = true;
-        header("Location: ".$this->data['page_destination']);
+        header("Location: ".$_SESSION['page_destination']);
     }
 
     function isLoggedIn()

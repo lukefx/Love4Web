@@ -28,7 +28,4 @@ else
     throw new Exception("Class folder not found");
 }
 
-$session = new Session();
-
-
 ?>

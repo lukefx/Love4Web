@@ -8,10 +8,8 @@
 
 <script type="text/javascript" src="js/prototype.js"></script>
 <script type="text/javascript" src="js/scriptaculous.js"></script>
-<script type="text/javascript" src="js/validation.js"></script>
 
 <link rel="stylesheet" type="text/css" href="css/style.css" />
-<link rel="stylesheet" href="css/modalbox.css" type="text/css" media="screen" />
 
 </head>
 <body>
@@ -31,7 +29,7 @@
         <textarea name="comments" cols="50" rows="12" id="comments"></textarea><br>
         <input name="sent" value="Send Message" type="button" onclick="
           {literal}
-              var valid = new Validation('mailform');
+              var valid = new Validation('mailform', {stopOnFirst:true});
               if(valid.validate())
               {
                 $('loadingIcon').toggle();
