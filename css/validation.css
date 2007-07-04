@@ -4,7 +4,7 @@ input.disabled {
 }
 
 input.required, textarea.required {
-	border: 1px solid #00A8E6;
+	border: 1px solid #85AC1E;
 }
 input.validation-failed, textarea.validation-failed {
 	border: 1px solid #FF3300;
