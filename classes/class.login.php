@@ -1,18 +1,48 @@
 <?php
 
-    // Interfaccia principale che definisce i metodi di base
-    interface Login
-    {
-        public function login();
-        public function getUserInfo();
-    }
+	abstract class Login
+	{
+		private $user;
+		
+		abstract function login();
+		
+		public function getUserInfo()
+        {
+            return $this->user->username;
+        }
+		
+		
+	}
 
+	class DBLogin extends Login
+	{
+		
+		function DBLogin($user)
+		{
+			$this->user = $user;
+		}
+		
+		function login()
+		{
+			$db = Persistent::getInstance();
+			$where = sprintf("username='%s' and password='%s'", $user->username, md5($user->password));
+			$news = $db->search("User", $where);
+			
+			if($news)
+			{
+				return true;
+			}
+			
+			return false;
+			
+		}
+		
+	}
 
     // implementazione concreta del login
-    class GoogleLogin implements Login
+    class GoogleLogin extends Login
     {
 
-        private $user;
         private $authcode;
 
         function GoogleLogin($user)
@@ -20,7 +50,7 @@
             $this->user = $user;
         }
 
-        public function login()
+        function login()
         {
            	$buf = sprintf('accountType=GOOGLE&Email=%s&Passwd=%s&service=cl&source=%s',
          		rawurlencode($this->user->username),
@@ -32,13 +62,13 @@
         	curl_setopt($ch, CURLOPT_POSTFIELDS, $buf);
         	curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
         	$res = curl_exec($ch);
-        	preg_match('/auth=(.+)/i',$res,$m);
-        	$this->authcode = $m[1];
-        }
+        	if(preg_match('/auth=(.+)/i',$res,$m))
+        	{
+        		$this->authcode = $m[1];
+        		return true;     		
+        	}
+        	return false;
 
-        public function getUserInfo()
-        {
-            return $this->user->username;
         }
 
     }

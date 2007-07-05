@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * 
+ * Dispacher for ajax requests.
+ * Receive the post and analyze it
+ * 
+ * @author Luke
+ */
+
 include("common.php");
 
 // Ajax requests dispacher

@@ -31,11 +31,12 @@
         <br /><br />
         <input name="sent" value="Login" type="submit">
     </form>
-
+    
 <script type="text/javascript">
-
+{literal}
+	new Validation('loginform', {stopOnFirst:true});
+{/literal}
 </script>
-
 
 </div>
 
