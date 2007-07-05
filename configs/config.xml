@@ -12,7 +12,7 @@
     <!-- database configs -->
     <Database>lukefx</Database>
     <DbUsername>root</DbUsername>
-    <DbPassword>root</DbPassword>
+    <DbPassword></DbPassword>
     <DbHost>localhost</DbHost>
 
 </config>

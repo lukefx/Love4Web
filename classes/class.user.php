@@ -2,16 +2,25 @@
 
 class User
 {
+    var $username;
+    var $password;
+    var $level;         // Administrator o so on...
 
-    private $username;
-    private $password;
-    private $level;         // Administrator o so on...
-
-    function User($user)
+    function User($username, $password)
     {
-        $this->username = $user->username;
-        $this->password = $user->password;
-
+        $this->username = $username;
+        $this->password = $password;
+        $this->level = "Administrator";
+    }
+    
+    public function getUsername()
+    {	
+    	return $this->username;
+    }
+    
+    public function getPassword()
+    {
+    	return $this->password;
     }
 
 }

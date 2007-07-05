@@ -3,12 +3,13 @@
 include("common.php");
 
 if(isset($_POST) && !empty($_POST))
-{	
+{
 	$session = new Session();
-	$google = new GoogleLogin(new User($_POST['Email'], $_POST['password']));
+	$login = new DBLogin(new User($_POST['Username'], $_POST['Password']));
 	
-	if($google->login())
-	    $session->logged();	
+	if($login->login())
+	    $session->logged();
+	throw new Exception("Login error");
 }
 
 $website = new love4web();

@@ -221,7 +221,7 @@ class Persistent {
 
         // Check each in list for a match.
         for ($i=0;$i<$rcount;$i++) {
-            if (mysql_tablename($result, $i) == $tablename)
+            if (strcasecmp(mysql_tablename($result, $i), $tablename))
                 return true;
         }
         return false;

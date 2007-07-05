@@ -1,13 +1,5 @@
 <?php
-///////////////////////////////////////////
-//
-// twitterPHP
-// version 0.1
-// By David Billingham
-// david [at] slawcup [dot] com
-// http://twitter.slawcup.com/twitter.class.phps
-//
-//
+
 // Example 1:
 //
 // $t= new twitter();

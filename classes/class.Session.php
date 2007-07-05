@@ -25,6 +25,7 @@ class Session {
     {
         $_SESSION = array();
         session_destroy();
+        header("Location: index.php");
     }
 
     function store($key, $var)

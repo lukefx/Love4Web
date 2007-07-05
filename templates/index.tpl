@@ -23,31 +23,14 @@
 
   <div id="header_inner"> 
     <h1><span>Framework.</span>Home</h1>
-    <div id="slogan"><a href="#" onclick="
-          {literal}
-          new Ajax.Request('logout.php', {
-              method: 'get',
-              onSuccess: function(transport) {
-                    alert('logged out');
-              }
-          });
-          {/literal}
-          ">logout</a></div>
+    <div id="slogan"><lang>slogan</lang></div>
   </div>
 </div>
 
 <div id="main"> 
   <div id="lcol"> 
     <div id="menu">
-      <ul>
-        {literal}
-        <li><a href="index.php"><lang>homepage</lang><span></span></a></li>
-        <li><a href="http://blog.lukefx.com"><lang>blog</lang><span></span></a></li>
-        <li><a href="prova.php"><lang>other</lang><span></span></a></li>
-        <li><a href="#"><lang>about</lang><span></span></a></li>
-        <li><a href="contact.php" title="<lang>contact</lang>" onclick="Modalbox.show(this.title, this.href, {width: 600, height: 540});return false;"><lang>contact</lang><span></span></a></li>
-        {/literal}
-      </ul>
+	{include file="mainMenu.tpl"}
     </div>
     <div id="menu_end"></div>
     <div id="lcontent"> 

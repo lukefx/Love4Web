@@ -12,15 +12,6 @@
 <script type="text/javascript" src="js/scriptaculous.js"></script>
 <script type="text/javascript" src="js/modalbox.js"></script>
 
-<script language="javascript" type="text/javascript">
-{literal}
-tinyMCE.init({
-	mode : "textareas",
-	theme : "simple"
-});
-{/literal}
-</script>
-
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/validation.css" />
 <link rel="stylesheet" href="css/modalbox.css" type="text/css" media="screen" />
@@ -39,15 +30,7 @@ tinyMCE.init({
 <div id="main"> 
   <div id="lcol"> 
     <div id="menu">
-      <ul>
-        {literal}
-        <li><a href="index.php"><lang>homepage</lang><span></span></a></li>
-        <li><a href="http://blog.lukefx.com"><lang>blog</lang><span></span></a></li>
-        <li><a href="prova.php"><lang>other</lang><span></span></a></li>
-        <li><a href="#"><lang>about</lang><span></span></a></li>
-        <li><a href="contact.php" title="<lang>contact</lang>" onclick="Modalbox.show(this.title, this.href, {width: 600, height: 540});return false;"><lang>contact</lang><span></span></a></li>
-        {/literal}
-      </ul>
+	{include file="mainMenu.tpl"}
     </div>
     <div id="menu_end"></div>
     <div id="lcontent"> 
