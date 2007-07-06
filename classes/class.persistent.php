@@ -129,12 +129,12 @@ class Persistent {
         return $ret;
     }
 
-
-    // Not Complete
-    function delete($id)
+    function delete($table, $id)
     {
         $this->connect();
-        $query = "DELETE FROM `` WHERE id=$id";
+        $query = "DELETE FROM `$table` WHERE id=$id";
+        if(!mysql_query($query))
+            throw new SQLException(mysql_error());
         $this->disconnect();
     }
 
@@ -221,7 +221,7 @@ class Persistent {
 
         // Check each in list for a match.
         for ($i=0;$i<$rcount;$i++) {
-            if (strcasecmp(mysql_tablename($result, $i), $tablename))
+            if (!strcasecmp(mysql_tablename($result, $i), $tablename))
                 return true;
         }
         return false;

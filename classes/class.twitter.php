@@ -1,109 +1,56 @@
 <?php
 
-// Example 1:
-//
-// $t= new twitter();
-// $res = $t->publicTimeline();
-// if($res===false){
-//   echo "ERROR<hr/>";
-//     echo "<pre>";
-//   print_r($t->responseInfo);
-//     echo "</pre>";
-// }else{
-//   echo "SUCCESS<hr/>";
-//     echo "<pre>";
-//   print_r($res);
-//     echo "</pre>";
-// }
-//
-//
-// Example 2:
-//
-// $t= new twitter();
-// $t->username='username';
-// $t->password='password';
-// $res = $t->update('i am testing twitter.class.php');
-// if($res===false){
-//   echo "ERROR<hr/>";
-//     echo "<pre>";
-//   print_r($t->responseInfo);
-//     echo "</pre>";
-// }else{
-//   echo "SUCCESS<hr/>Status Posted";
-// }
-//
-//
-//////////////////////////////////////////
+class twitter
+{
+    /**#@+
+     * 
+     * @access private
+     * @var string
+     * 
+     */
 
-class twitter{
-    var $username='';
-    var $password='';
-    var $user_agent='';
+    var $username = '';
+    var $password = '';
+    var $user_agent = '';
 
-    ///////////////
-    //
-    // I don't know if these headers have become standards yet
-    // but I would suggest using them.
-    // more discussion here.
-    // http://tinyurl.com/3xtx66
-    //
-    ///////////////
-    var $headers=array('X-Twitter-Client: ',
-                                            'X-Twitter-Client-Version: ',
-                                            'X-Twitter-Client-URL: ');
+	/**
+	 * I don't know if these headers have become standards yet
+	 * but I would suggest using them.
+	 * 
+	 */ 
+    var $headers = array('X-Twitter-Client: ', 'X-Twitter-Client-Version: ', 'X-Twitter-Client-URL: ');
+    
+    /**
+     * The response from the server
+     */
+    var $responseInfo = array();
 
-    var $responseInfo=array();
+    /**#@-*/
 
+    function twitter()
+    {
+    	
+    }
 
-    function twitter(){}
-
-
-
-
-
-    /////////////////////////////////////////
-    //
-    // Twitter API calls
-    //
-    // $this->update($status)
-    // $this->publicTimeline($sinceid=false)
-    // $this->friendsTimeline($id=false,$since=false)
-    // $this->userTimeline($id=false,$count=20,$since=false)
-    // $this->showStatus($id)
-    // $this->friends($id=false)
-    // $this->followers()
-    // $this->featured()
-    // $this->showUser($id)
-    // $this->directMessages($since=false)
-    // $this->sendDirectMessage($user,$text)
-    //
-    // If SimpleXMLElement exists the results will be returned as a SimpleXMLElement
-    // otherwise the raw XML will be returned for a successful request.  If the request
-    // fails a FALSE will be returned.
-    //
-    //
-    /////////////////////////////////////////
-
-
-    // Updates the authenticating user's status.
-    // Requires the status parameter specified below.
-    //
-    // status. (string) Required.  The text of your status update.  Must not be
-    //                             more than 160 characters and should not be
-    //                             more than 140 characters to ensure optimal display.
-    //
+	/**
+	 * Updates the authenticating user's status.
+     * Requires the status parameter specified below.
+     * @param string $status Required. The text of your status update. Must not be more than 160 characters and should not be more than 140 characters to ensure optimal display.
+     * @return SimpleXMLElement The response from the server
+	 */
     function update($status){
         $request = 'http://twitter.com/statuses/update.xml';
         $postargs['status'] = urlencode($status);
-        return $this->process($request,$postargs);
+        return $this->process($request, $postargs);
     }
 
-    // Returns the 20 most recent statuses from non-protected users who have
-    // set a custom user icon.  Does not require authentication.
-    //
-    // sinceid. (int) Optional.  Returns only public statuses with an ID greater
-    //                           than (that is, more recent than) the specified ID.
-    //
+    /** 
+     * Returns the 20 most recent statuses from non-protected users who have
+     * set a custom user icon.  Does not require authentication.
+     *
+     * @param int sinceid (Optional) Returns only public statuses with an ID greater than (that is, more recent than) the specified ID.
+     * @return SimpleXMLElement The response from the server
+     */
     function publicTimeline($sinceid=false){
         $qs = '';
         if($sinceid !== false)
