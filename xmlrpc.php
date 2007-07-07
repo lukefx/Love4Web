@@ -7,11 +7,18 @@ class XmlrpcServer extends IXR_Server {
     function XmlrpcServer() {
         $this->IXR_Server(
             array(
+            	'framework.version' => 'this:version',
                 'demo.sayHello' => 'this:sayHello',
                 'demo.addTwoNumbers' => 'this:addTwoNumbers'
             )
         );
     }
+    
+    function version($args)
+	{
+		$fw = new love4web();
+		return $fw->getVersion();
+	}
 
     // test functions
     function sayHello($args)

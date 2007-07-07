@@ -24,10 +24,6 @@
  * @package love4web
  */
 
-/**
- * @package Smarty
- */
-
 class Configuration
 {
     private $configFile;

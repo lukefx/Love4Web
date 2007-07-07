@@ -52,6 +52,9 @@ class XmlrpcTest extends UnitTestCase
         // Create the client object
         $client = new IXR_Client('http://localhost/love4web/xmlrpc.php');
         $this->assertNotNull($client);
+        
+        $this->assertTrue($client->query('framework.version'));
+        $this->assertIsA($client->getResponse(), "string");
         $this->assertTrue($client->query('demo.sayHello'));
         $this->assertEqual($client->getResponse(), "Hello!");
         $this->assertTrue($client->query('demo.addTwoNumbers', array(2, 2)));

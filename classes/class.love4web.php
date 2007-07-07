@@ -30,9 +30,15 @@
 
 class love4web {
 
+	private $version = "0.1 pre";
     private $template;
     private $config;
     private $smarty;
+
+	function getVersion()
+	{
+		return $this->version;
+	}
 
 	/**
 	 * The class costructor
