@@ -1,11 +1,18 @@
-a.mceButtonNormal img, a.mceButtonSelected img {border: 1px solid #F0F0EE !important;}
-a.mceButtonNormal img:hover, a.mceButtonSelected img:hover {border: 1px solid #0A246A !important;  cursor: default;  background-color: #B6BDD2;}
+a.mceButtonNormal img,a.mceButtonSelected img {
+	border: 1px solid #F0F0EE !important;
+}
+
+a.mceButtonNormal img:hover,a.mceButtonSelected img:hover {
+	border: 1px solid #0A246A !important;
+	cursor: default;
+	background-color: #B6BDD2;
+}
 
 img {
 	border: 0;
 }
 
-input.field, select.field {
+input.field,select.field {
 	width: 200px;
 }
 
@@ -41,6 +48,7 @@ h1 {
 	height: 160px;
 }
 
-#xhtmlxtrasdel .panel_wrapper div.current, #xhtmlxtrasins .panel_wrapper div.current {
+#xhtmlxtrasdel .panel_wrapper div.current,#xhtmlxtrasins .panel_wrapper div.current
+	{
 	height: 220px;
 }

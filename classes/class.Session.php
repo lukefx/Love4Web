@@ -70,7 +70,7 @@ class Session {
         return session_id();
     }
 
-    function load()
+    private function load()
     {
         session_start();
     }

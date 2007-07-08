@@ -20,7 +20,8 @@ h3 {
 #log {
 	font-family: Verdana;
 	border: 1px solid gray;
-	width: 100%; height: 240px;
+	width: 100%;
+	height: 240px;
 	overflow: scroll;
 	white-space: nowrap;
 }
@@ -49,13 +50,15 @@ h3 {
 	border: 0;
 }
 
-#settings_panel span, #info_panel span, #content_panel span, #command_states_panel span, #undo_redo_panel span {
+#settings_panel span,#info_panel span,#content_panel span,#command_states_panel span,#undo_redo_panel span
+	{
 	display: block;
 	margin: 5px 0 5px 0;
 }
 
 div.data {
-	width: 100%; height: 240px;
+	width: 100%;
+	height: 240px;
 	overflow: scroll;
 	border: 1px solid gray;
 }
@@ -86,19 +89,21 @@ div.data {
 }
 
 .data p {
-	margin: 0; padding: 0;
+	margin: 0;
+	padding: 0;
 	margin-top: 5px;
 	margin-left: 5px;
 }
 
-table, td {
+table,td {
 	border: 1px solid gray;
 	border-collapse: collapse;
 }
 
 #flip {
 	position: absolute;
-	left: 295; top: 384px;
+	left: 295;
+	top: 384px;
 }
 
 .bspec {
@@ -114,4 +119,5 @@ table, td {
 }
 
 div.undodata {
+	
 }

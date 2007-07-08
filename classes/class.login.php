@@ -12,6 +12,31 @@
         }
 	}
 
+	class LDAPLogin extends Login
+	{
+		function LDAPLogin($user)
+		{
+			$this->user = $user;
+		}
+		
+		function login()
+		{
+			if(!function_exists("ldap_connect"))
+				throw new Exception("No Ldap support.");
+			
+			$ldaprdn  = $this->user->getUsername();
+			$ldappass = $this->user->getPassword();
+			
+			$ds = ldap_connect("localhost");
+			if ($ds) {
+    			$ldapbind = ldap_bind($ds, $ldaprdn, $ldappass);
+			    ldap_close($ds);
+			    return $ldapbind;
+			}			
+		}
+		
+	}
+
 	class DBLogin extends Login
 	{
 		
@@ -31,9 +56,7 @@
 				return true;
 			}
 			return false;
-			
-		}
-		
+		}		
 	}
 
     // implementazione concreta del login

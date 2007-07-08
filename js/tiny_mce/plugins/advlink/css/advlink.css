@@ -1,6 +1,5 @@
 /* CSS file for advimage plugin popup */
-
-.mceLinkList, .mceAnchorList, #targetlist {
+.mceLinkList,.mceAnchorList,#targetlist {
 	width: 280px;
 }
 
@@ -12,21 +11,22 @@
 	height: 320px;
 }
 
-#classlist, #title, #href {
+#classlist,#title,#href {
 	width: 280px;
 }
 
-#popupurl, #popupname {
+#popupurl,#popupname {
 	width: 200px;
 }
 
-#popupwidth, #popupheight, #popupleft, #popuptop {
+#popupwidth,#popupheight,#popupleft,#popuptop {
 	width: 30px;
 	vertical-align: middle;
 	text-align: center;
 }
 
-#id, #style, #classes, #target, #dir, #hreflang, #lang, #charset, #type, #rel, #rev, #tabindex, #accesskey {
+#id,#style,#classes,#target,#dir,#hreflang,#lang,#charset,#type,#rel,#rev,#tabindex,#accesskey
+	{
 	width: 200px;
 }
 

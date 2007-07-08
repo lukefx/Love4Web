@@ -1,5 +1,4 @@
 /* Window classes */
-
 .mceWindow {
 	position: absolute;
 	left: 0;
@@ -42,7 +41,7 @@
 	margin-right: 2px;
 }
 
-.mceWindowClose, .mceWindowMinimize, .mceWindowMaximize {
+.mceWindowClose,.mceWindowMinimize,.mceWindowMaximize {
 	display: block;
 	float: right;
 	overflow: hidden;
@@ -54,9 +53,11 @@
 }
 
 .mceWindowMinimize {
+	
 }
 
 .mceWindowMaximize {
+	
 }
 
 .mceWindowResize {

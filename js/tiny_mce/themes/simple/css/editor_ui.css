@@ -12,7 +12,7 @@
 	margin-top: 2px;
 }
 
-.mceLabel, .mceLabelDisabled {
+.mceLabel,.mceLabelDisabled {
 	font-family: "MS Sans Serif";
 	font-size: 9pt;
 }
@@ -49,8 +49,7 @@
 }
 
 /* Button CSS rules */
-
-a.mceButtonDisabled img, a.mceButtonNormal img, a.mceButtonSelected img {
+a.mceButtonDisabled img,a.mceButtonNormal img,a.mceButtonSelected img {
 	width: 20px;
 	height: 20px;
 	cursor: default;
@@ -62,7 +61,7 @@ a.mceButtonDisabled img {
 	border: 0 !important;
 }
 
-a.mceButtonNormal img, a.mceButtonSelected img {
+a.mceButtonNormal img,a.mceButtonSelected img {
 	border: 1px solid #F0F0EE !important;
 }
 
@@ -70,14 +69,14 @@ a.mceButtonSelected img {
 	border: 1px solid #C0C0BB !important;
 }
 
-a.mceButtonNormal img:hover, a.mceButtonSelected img:hover {
+a.mceButtonNormal img:hover,a.mceButtonSelected img:hover {
 	border: 1px solid #0A246A !important;
 	cursor: default;
 	background-color: #B6BDD2;
 }
 
 a.mceButtonDisabled img {
-	-moz-opacity:0.3;
+	-moz-opacity: 0.3;
 	opacity: 0.3;
 	border: 1px solid #F0F0EE !important;
 	cursor: default;
@@ -89,15 +88,15 @@ a.mceTiledButton img {
 }
 
 /* MSIE specific rules */
-
-* html a.mceButtonNormal img, * html a.mceButtonSelected img, * html a.mceButtonDisabled img {
+* html a.mceButtonNormal img,* html a.mceButtonSelected img,* html a.mceButtonDisabled img
+	{
 	border: 0px !important;
 	margin-top: 2px;
 	margin-bottom: 1px;
 }
 
 * html a.mceButtonDisabled img {
-	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=30);
+	filter: progid : DXImageTransform . Microsoft . Alpha(opacity = 30);
 	border: 0px !important;
 }
 
@@ -105,7 +104,7 @@ a.mceTiledButton img {
 	border: 1px solid #F0F0EE !important;
 }
 
-* html a.mceButtonNormal, * html a.mceButtonSelected {
+* html a.mceButtonNormal,* html a.mceButtonSelected {
 	border: 1px solid #F0F0EE;
 	cursor: default;
 }
@@ -114,7 +113,7 @@ a.mceTiledButton img {
 	border: 1px solid #C0C0BB;
 }
 
-* html a.mceButtonNormal:hover, * html a.mceButtonSelected:hover {
+* html a.mceButtonNormal:hover,* html a.mceButtonSelected:hover {
 	border: 1px solid #0A246A;
 	cursor: default;
 	background-color: #B6BDD2;

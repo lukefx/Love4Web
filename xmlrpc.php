@@ -4,7 +4,10 @@ include("common.php");
 
 class XmlrpcServer extends IXR_Server {
 
-    function XmlrpcServer() {
+	private $methods = array();
+
+    function XmlrpcServer() 
+    {
         $this->IXR_Server(
             array(
             	'framework.version' => 'this:version'

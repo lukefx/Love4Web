@@ -1,5 +1,4 @@
 /* This file contains the CSS data for all popups in TinyMCE */
-
 body {
 	background-color: #F0F0EE;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -25,12 +24,12 @@ input {
 	border: 1px solid #cccccc;
 }
 
-td, input, select, textarea {
+td,input,select,textarea {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 10px;
 }
 
-input, select, textarea {
+input,select,textarea {
 	border: 1px solid #808080;
 }
 
@@ -38,26 +37,26 @@ input, select, textarea {
 	border: 0;
 }
 
-#insert, .updateButton {
-   font-weight: bold;
-   width: 90px;
-   height: 21px;
-   border: 0;
-   background-image: url('../images/insert_button_bg.gif');
-   cursor: pointer;
+#insert,.updateButton {
+	font-weight: bold;
+	width: 90px;
+	height: 21px;
+	border: 0;
+	background-image: url('../images/insert_button_bg.gif');
+	cursor: pointer;
 }
 
 #cancel {
-   font-weight: bold;
-   width: 90px;
-   height: 21px;
-   border: 0;
-   background-image: url('../images/cancel_button_bg.gif');
-   cursor: pointer;
+	font-weight: bold;
+	width: 90px;
+	height: 21px;
+	border: 0;
+	background-image: url('../images/cancel_button_bg.gif');
+	cursor: pointer;
 }
 
 /* Mozilla only style */
-html>body #insert, html>body #cancel {
+html>body #insert,html>body #cancel {
 	padding-bottom: 2px;
 }
 
@@ -73,7 +72,7 @@ table.charmap {
 	border-color: #AAAAAA;
 }
 
-td.charmap, td.charmapOver {
+td.charmap,td.charmapOver {
 	color: #000000;
 	border-color: #AAAAAA;
 	border-style: solid;
@@ -110,7 +109,8 @@ input.checkbox {
 	vertical-align: middle;
 }
 
-.mceButtonNormal, .mceButtonOver, .mceButtonDown, .mceSeparator, .mceButtonDisabled, .mceButtonSelected {
+.mceButtonNormal,.mceButtonOver,.mceButtonDown,.mceSeparator,.mceButtonDisabled,.mceButtonSelected
+	{
 	margin-left: 1px;
 }
 
@@ -136,8 +136,8 @@ input.checkbox {
 }
 
 .mceButtonDisabled {
-	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=30);
-	-moz-opacity:0.3;
+	filter: progid : DXImageTransform . Microsoft . Alpha(opacity = 30);
+	-moz-opacity: 0.3;
 	opacity: 0.3;
 	border-top: 1px solid;
 	border-left: 1px solid;
@@ -152,7 +152,6 @@ input.checkbox {
 }
 
 /* Tabs classes */
-
 .tabs {
 	float: left;
 	width: 100%;
@@ -198,17 +197,20 @@ input.checkbox {
 	font-size: 10px;
 }
 
-.tabs a:link, .tabs a:visited, .tabs a:hover {
+.tabs a:link,.tabs a:visited,.tabs a:hover {
 	color: black;
 }
 
 .tabs a:hover {
+	
 }
 
 .tabs .current {
+	
 }
 
-.tabs .current a, .tabs .current a:link, .tabs .current a:visited {
+.tabs .current a,.tabs .current a:link,.tabs .current a:visited {
+	
 }
 
 .panel_wrapper div.panel {
@@ -250,13 +252,14 @@ legend {
 }
 
 .properties .column1 {
+	
 }
 
 .properties .column2 {
 	text-align: left;
 }
 
-a:link, a:visited {
+a:link,a:visited {
 	color: black;
 }
 
@@ -269,7 +272,7 @@ a:hover {
 	background-color: #DDDDDD;
 }
 
-#plugintable, #about #plugintable td {
+#plugintable,#about #plugintable td {
 	border: 1px solid #919B9C;
 }
 
@@ -284,7 +287,6 @@ a:hover {
 }
 
 /* MSIE Specific styles */
-
 * html .panel_wrapper {
 	width: 100%;
 }
@@ -293,7 +295,7 @@ a:hover {
 	float: left;
 }
 
-h1, h2, h3, h4 {
+h1,h2,h3,h4 {
 	color: #2B6FB6;
 	margin: 0;
 	padding: 0;
@@ -304,27 +306,32 @@ h3 {
 	font-size: 14px;
 }
 
-#link .panel_wrapper, #link div.current {
+#link .panel_wrapper,#link div.current {
 	height: 125px;
 }
 
-#image .panel_wrapper, #image div.current {
+#image .panel_wrapper,#image div.current {
 	height: 190px;
 }
 
-label.msg { display: none; }
-label.invalid { color: #EE0000; display: inline; }
-input.invalid { border: 1px solid #EE0000; }
+label.msg {
+	display: none;
+}
 
-/* Disables the advanced tab in the table plugin. */
-/*
+label.invalid {
+	color: #EE0000;
+	display: inline;
+}
+
+input.invalid {
+	border: 1px solid #EE0000;
+}
+/* Disables the advanced tab in the table plugin. */ /*
 #table #advanced_tab {
 	display: none;
 }
-*/
-
-/* Disables the border input field and label in the table plugin. */
-/*
+*/ /* Disables the border input field and label in the table plugin. */
+	/*
 #table #border, #table #borderlabel {
 	display: none;
 }

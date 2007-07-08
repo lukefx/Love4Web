@@ -1,5 +1,4 @@
 /* CSS file for advimage plugin popup */
-
 .mceImageList {
 	width: 280px;
 }
@@ -26,24 +25,23 @@
 
 #prev {
 	margin: 0;
-	border: 1px
-	solid black;
+	border: 1px solid black;
 	width: 99%;
 	height: 150px;
 	overflow: auto;
 }
 
-#align, #classlist {
+#align,#classlist {
 	width: 150px;
 }
 
-#width, #height {
+#width,#height {
 	vertical-align: middle;
 	width: 50px;
 	text-align: center;
 }
 
-#vspace, #hspace, #border {
+#vspace,#hspace,#border {
 	vertical-align: middle;
 	width: 30px;
 	text-align: center;
@@ -57,10 +55,10 @@ input {
 	width: 280px;
 }
 
-#constrain, #onmousemovecheck {
+#constrain,#onmousemovecheck {
 	width: auto;
 }
 
-#id, #dir, #lang, #usemap, #longdesc {
+#id,#dir,#lang,#usemap,#longdesc {
 	width: 200px;
 }

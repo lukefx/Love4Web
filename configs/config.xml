@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <config>
 
-    <!-- Folder configs -->
-    <TemplateDir>templates</TemplateDir>
-    <CompiledTemplateDir>templates_c</CompiledTemplateDir>
-    <ClassesDir>classes</ClassesDir>
+	<!-- Folder configs -->
+	<TemplateDir>templates</TemplateDir>
+	<CompiledTemplateDir>templates_c</CompiledTemplateDir>
+	<ClassesDir>classes</ClassesDir>
 
-    <!-- enable the xmlrpl? -->
-    <xmlrpc>true</xmlrpc>
+	<!-- enable the xmlrpl? -->
+	<xmlrpc>true</xmlrpc>
 
-    <!-- database configs -->
-    <Database>lukefx</Database>
-    <DbUsername>root</DbUsername>
-    <DbPassword></DbPassword>
-    <DbHost>localhost</DbHost>
+	<!-- database configs -->
+	<Database>lukefx</Database>
+	<DbUsername>root</DbUsername>
+	<DbPassword></DbPassword>
+	<DbHost>localhost</DbHost>
 
 </config>

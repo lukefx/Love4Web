@@ -1,5 +1,4 @@
 /* Colorpicker dialog specific CSS */
-
 #preview {
 	float: right;
 	width: 50px;
@@ -43,7 +42,8 @@
 #namedcolors a {
 	display: block;
 	float: left;
-	width: 10px; height: 10px;
+	width: 10px;
+	height: 10px;
 	margin: 1px 1px 0 0;
 	overflow: hidden;
 }

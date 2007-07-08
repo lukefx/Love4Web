@@ -13,7 +13,8 @@
 	background-color: #FFFFFF;
 }
 
-.contextMenuItem, .contextMenuItemOver {
+.contextMenuItem,.contextMenuItemOver {
+	
 }
 
 .contextMenuSeparator {
@@ -22,7 +23,7 @@
 	border: 0;
 }
 
-.contextMenuImage, .contextMenuItemDisabled {
+.contextMenuImage,.contextMenuItemDisabled {
 	border: 0;
 }
 
@@ -39,8 +40,8 @@
 }
 
 .contextMenuItemDisabled img {
-	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=30);
-	-moz-opacity:0.3;
+	filter: progid : DXImageTransform . Microsoft . Alpha(opacity = 30);
+	-moz-opacity: 0.3;
 	opacity: 0.3;
 }
 

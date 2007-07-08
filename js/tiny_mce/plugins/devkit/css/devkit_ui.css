@@ -1,7 +1,9 @@
 #devkit {
 	position: absolute;
-	top: -385px; right: 0;
-	width: 640px; height: 390px;
+	top: -385px;
+	right: 0;
+	width: 640px;
+	height: 390px;
 	border: 1px solid black;
 	z-index: 10000;
 }
