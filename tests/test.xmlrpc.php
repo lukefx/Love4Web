@@ -55,10 +55,6 @@ class XmlrpcTest extends UnitTestCase
         
         $this->assertTrue($client->query('framework.version'));
         $this->assertIsA($client->getResponse(), "string");
-        $this->assertTrue($client->query('demo.sayHello'));
-        $this->assertEqual($client->getResponse(), "Hello!");
-        $this->assertTrue($client->query('demo.addTwoNumbers', array(2, 2)));
-        $this->assertEqual($client->getResponse(), 4);
 
     }
 
