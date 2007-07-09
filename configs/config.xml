@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <config>
 
+	<absPath>/love4web/</absPath>
+
 	<!-- Folder configs -->
 	<TemplateDir>templates</TemplateDir>
 	<CompiledTemplateDir>templates_c</CompiledTemplateDir>
