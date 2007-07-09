@@ -264,6 +264,9 @@ ul.divided li.first {
 	margin-top: 15px;
 	background: inherit;
 	color: #AAB165;
+	width:440px;
+	float:left
+
 }
 
 .box h2 {
@@ -283,9 +286,11 @@ ul.divided li.first {
 
 .box_inner {
 	border: solid 1px #fff;
+	width:408px;
 	padding: 15px;
 	background: #FFFFE9 url('../images/a4.gif') repeat-x;
 	color: inherit;
+	float:left;
 }
 
 .captioned_image {
