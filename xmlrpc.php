@@ -17,8 +17,7 @@ class XmlrpcServer extends IXR_Server {
     
     function version($args)
 	{
-		$fw = new love4web();
-		return $fw->getVersion();
+		return love4web::getVersion();
 	}
 
 }

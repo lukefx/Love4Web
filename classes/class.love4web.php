@@ -30,14 +30,14 @@
 
 class love4web {
 
-	private $version = "0.1 pre";
+	private static $version = "0.1-pre";
     private $template;
     private $config;
     private $smarty;
 
-	function getVersion()
+	static function getVersion()
 	{
-		return $this->version;
+		return self::$version;
 	}
 
 	/**
