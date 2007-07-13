@@ -8,8 +8,20 @@
 
 <script type="text/javascript" src="js/prototype.js"></script>
 <script type="text/javascript" src="js/scriptaculous.js"></script>
+<script type="text/javascript" src="js/validation.js"></script>
 
 <link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/validation.css" />
+
+<script language="javascript" type="text/javascript" src="js/tiny_mce/tiny_mce.js"></script>
+<script language="javascript" type="text/javascript">
+{literal}
+	tinyMCE.init({
+		mode : "textareas",
+		theme : "simple"
+	});
+{/literal}
+</script>
 
 </head>
 <body>

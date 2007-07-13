@@ -49,10 +49,11 @@
 		{
 			$db = Persistent::getInstance();
 			$where = sprintf("username='%s' and password='%s'", $this->user->getUsername(), md5($this->user->getPassword()));
-			$news = $db->search("User", $where);
+			$res = $db->search("User", $where);
 			
-			if($news)
+			if($res)
 			{
+				//TODO far tornare un oggetto login...
 				return true;
 			}
 			return false;

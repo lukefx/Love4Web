@@ -7,14 +7,11 @@
 <meta name="description" content="" />
 
 <script type="text/javascript" src="js/prototype.js"></script>
-<script type="text/javascript" src="js/tiny_mce/tiny_mce.js"></script>
-<script type="text/javascript" src="js/validation.js"></script>
-<script type="text/javascript" src="js/scriptaculous.js"></script>
-<script type="text/javascript" src="js/modalbox.js"></script>
+<script type="text/javascript" src="js/scriptaculous.js?load=effects"></script>
+<script type="text/javascript" src="js/lightWindow.js"></script>
 
 <link rel="stylesheet" type="text/css" href="css/style.css" />
-<link rel="stylesheet" type="text/css" href="css/validation.css" />
-<link rel="stylesheet" href="css/modalbox.css" type="text/css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/lightWindow.css" />
 
 </head>
 <body>
