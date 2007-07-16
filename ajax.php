@@ -22,7 +22,7 @@ if(isset($_POST) && !empty($_POST))
                 $status['created_at'] = trim($res->status[0]->created_at);
                 header('X-JSON:('.json_encode($status).')');
                 echo "/*-secure-\n".json_encode($status)."\n*/";
-                break;
+                break;        
         default:
                 break;
     }

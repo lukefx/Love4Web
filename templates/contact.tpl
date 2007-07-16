@@ -7,8 +7,8 @@
 <meta name="description" content="" />
 
 <script type="text/javascript" src="js/prototype.js"></script>
-<script type="text/javascript" src="js/scriptaculous.js"></script>
-<script type="text/javascript" src="js/validation.js"></script>
+<script type="text/javascript" src="js/scriptaculous.js?load=effects"></script>
+<script type="text/javascript" src="js/lightWindow.js"></script>
 
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/validation.css" />

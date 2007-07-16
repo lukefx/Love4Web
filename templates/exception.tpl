@@ -20,13 +20,7 @@
 <div id="main"> 
   <div id="lcol"> 
     <div id="menu"> 
-      <ul>
-        <li><a href="index.php"><lang>homepage</lang><span></span></a></li>
-        <li><a href="http://blog.lukefx.com"><lang>blog</lang><span></span></a></li>
-        <li><a href="#"><lang>other</lang><span></span></a></li>
-        <li><a href="#"><lang>about</lang><span></span></a></li>
-        <li><a href="#"><lang>contact</lang><span></span></a></li>
-      </ul>
+	{include file="mainMenu.tpl"}
     </div>
     <div id="menu_end"></div>
     <div id="lcontent"> 

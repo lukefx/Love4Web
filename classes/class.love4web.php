@@ -25,7 +25,7 @@
  */
 
 /**
- * @package Smarty
+ * @package love4web
  */
 
 class love4web {
@@ -45,8 +45,14 @@ class love4web {
 	 */
     function love4web()
     {
+    	$config = Configuration::getInstance();
         $this->smarty = new SmartyML($_SESSION['lang']);
-        $this->smarty->force_compile = true;
+        $this->smarty->template_dir = $config->absPath . 'templates';
+        $this->smarty->compile_dir = $config->absPath . 'templates_c';
+        $this->smarty->config_dir = $config->absPath . 'configs';
+        $this->smarty->cache_dir = $config->absPath . 'cache';
+        $this->smarty->caching = true;
+        //$this->smarty->force_compile = true;
     }
 
 	/**

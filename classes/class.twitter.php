@@ -27,9 +27,10 @@ class twitter
 
     /**#@-*/
 
-    function twitter()
+    function twitter($username = '', $password = '')
     {
-    	
+    	$this->username = $username;
+    	$this->password = $password;
     }
 
 	/**

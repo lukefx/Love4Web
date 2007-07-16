@@ -1,14 +1,24 @@
 <?php
 
-include_once("libs/SmartyML.class.php");
+/**
+ * This file the entryPoint of the Framework.
+ * 
+ */
+
+include_once($config->absPath . "libs/SmartyML.class.php");
 
 // Final Catch per le eccezioni che raggiungo la main page
 function myException($exception)
 {
     $website = new SmartyML($_SESSION['lang']);
+	$config = Configuration::getInstance();
+    $website->template_dir = $config->absPath . 'templates/';
+    $website->compile_dir = $config->absPath . 'templates_c/';
+    $website->config_dir = $config->absPath . 'configs/';
+    $website->cache_dir = $config->absPath . 'cache/';
+    $website->caching = true;
     $website->assign("error", $exception->getMessage());
     $website->display("exception.tpl");
-    exit();
 }
 set_exception_handler('myException');
 

@@ -16,8 +16,21 @@ include("common.php");
 
 $session = new Session();
 $config = Configuration::getInstance();
-
 $request = explode("/", $_SERVER['REQUEST_URI']);
+
+/*
+echo "<pre>";
+print_r($request);
+echo "</pre>";
+die();
+*/
+
+if(!strcasecmp($request[2], "admin"))
+{
+	$absPath = $config->absPath . "admin.php";
+	header("location: " . $absPath);
+	exit();
+}
 
 /**
  * Find if it's a language set calls

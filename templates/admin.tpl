@@ -7,23 +7,19 @@
 <meta name="description" content="" />
 
 <script type="text/javascript" src="js/prototype.js"></script>
-<script type="text/javascript" src="js/tiny_mce/tiny_mce.js"></script>
-<script type="text/javascript" src="js/validation.js"></script>
-<script type="text/javascript" src="js/scriptaculous.js"></script>
-<script type="text/javascript" src="js/modalbox.js"></script>
+<script type="text/javascript" src="js/scriptaculous.js?load=effects"></script>
+<script type="text/javascript" src="js/lightWindow.js"></script>
 
 <link rel="stylesheet" type="text/css" href="css/style.css" />
-<link rel="stylesheet" type="text/css" href="css/validation.css" />
-<link rel="stylesheet" href="css/modalbox.css" type="text/css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/lightWindow.css" />
 
 </head>
 <body>
 
 <div id="header">
-
   <div id="header_inner"> 
     <h1><span>Framework.</span>Home</h1>
-    <div id="slogan"><lang>slogan</lang></div>
+    <div id="slogan">Administrative page <a href="logout.php"><small>logout</small></a></div>
   </div>
 </div>
 
@@ -53,13 +49,16 @@
 
   <div id="rcol">
     <div id="rcontent">
-      <h1>New<span>.Website<sup>2.0</sup></span></h1>
-      <span id="slogan2">design, style and technology</span>
+      <h1>Admin<span>.page</span></h1>
+      <span id="slogan2">Add, edit or delete anything.</span>
       
-      <h3>Auth page</h3>
       <p>
-      Questa è una pagina che richiede un utente autenticato.
-      <a href="logout.php"><small>logout</small></a>
+		<ul>
+			<li><a href="#">Manage news</a></li>
+			<li><a href="#">Manage users</a></li>
+			<li><a href="#">Manage privileges</a></li>
+			<li><a href="#">Manage access</a></li>
+		</ul>
       </p>
       
 
