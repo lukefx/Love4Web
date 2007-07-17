@@ -4,17 +4,19 @@ class Updater {
 	
 	private $remote_version;
 	private $local_version;
-	private $update_url = "https://localhost/love4web/update";	
+	private $update_url = "https://localhost/love4web/update";
 	
 	
 	public function Updater()
 	{
+		// remote last version
 		$this->remote_version = $this->checkVersion();
+		// our local installed version
 		$this->local_version = love4web::getVersion();
 		
 	}
 	
-	function checkUpdate()
+	public function checkUpdate()
 	{
 		if(version_compare($this->remote_version, $this->local_version) > 0)
 		{
@@ -42,7 +44,7 @@ class Updater {
 		    $zip->close();
 		    return true;
 		}
-		else 
+		else
 		{
 		    throw new Exception("extract error");
 		}

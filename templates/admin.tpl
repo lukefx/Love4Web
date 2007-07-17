@@ -18,7 +18,7 @@
 
 <div id="header">
   <div id="header_inner"> 
-    <h1><span>Framework.</span>Home</h1>
+    <h1><span>Framework.</span>{$version}</h1>
     <div id="slogan">Administrative page <a href="logout.php"><small>logout</small></a></div>
   </div>
 </div>
